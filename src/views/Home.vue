@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import HeroImage from '@/components/HeroImage.vue';
+import HeroImage from '@/components/HeroImage.vue'
 import Card from '@/components/Card.vue'
 
 export default {

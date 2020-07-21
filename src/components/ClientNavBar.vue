@@ -23,7 +23,7 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link to='/'>
+                        <router-link to='/client'>
                             <img class='dropdownIcon' src='@/assets/shopping.png' alt='shopping'>
                             <h4>Shop</h4>
                         </router-link>

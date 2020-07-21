@@ -40,7 +40,7 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'Store',
+        name: 'Shop',
         component: () => import('../views/client/Shop.vue')
       },
       {

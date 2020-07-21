@@ -1,17 +1,33 @@
 <template>
-    <p></p>
+    <div class='shop'>
+        <SecondHeader title='Profile'>
+            <router-link to='/'>Edit profile</router-link>
+            <router-link to='' style='background-color: red;color: white;'>Delete profile</router-link>
+        </SecondHeader>
+        <SearchBox></SearchBox>
+        <Card>
+            <Product name='Dog food' price='20.99' marca='Crunchie bites' desc='Box food for dogs'>
+            </Product>
+        </Card>
+    </div>
 </template>
 
 <script>
-import Product from '@/components/Product'
+import Card from '@/components/Card.vue'
+import Product from '@/components/Product.vue'
+import SearchBox from '@/components/SearchBox.vue'
+import SecondHeader from '@/components/SecondHeader.vue'
 
 export default {
     name: 'Shop',
     componets: {
-        Product
+        Card,
+        Product,
+        SearchBox,
+        SecondHeader
     }
 }
 </script>
 
-<style>
+<style scoped>
 </style>

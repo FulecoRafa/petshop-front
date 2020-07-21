@@ -1,34 +1,35 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Open from '../views/Open.vue'
+import Client from '../views/Client.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Open',
     component: Open,
     children: [
       {
-        path:'/',
-        name:"Home",
+        path: '/',
+        name: 'Home',
         component: () => import(/* webpackChunckName: "Home" */ '../views/Home.vue')
       },
       {
-        path:'/login',
-        name:"Login",
+        path: '/login',
+        name: 'Login',
         component: () => import(/* webpackChunckName: "Home" */ '../views/Login.vue')
       },
       {
-        path:'/register',
-        name:"Register",
+        path: '/register',
+        name: 'Register',
         component: () => import(/* webpackChunckName: "Home" */ '../views/Register.vue')
       },
       {
-        path:"/404",
-        name: "NotFound",
-        component: ()=> import(/* webpackChunckName: "NotFound" */ '../views/NotFound.vue')
+        path: '/404',
+        name: 'NotFound',
+        component: () => import(/* webpackChunckName: "NotFound" */ '../views/NotFound.vue')
       }
     ]
   },
@@ -41,8 +42,20 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: "*",
-    redirect: "/404"
+    path: '/client',
+    name: 'Client',
+    component: Client,
+    children: [
+      {
+        path: '/',
+        name: 'Test',
+        component: () => import('../views/Test.vue')
+      }
+    ]
+  },
+  {
+    path: '*',
+    redirect: '/404'
   }
 ]
 

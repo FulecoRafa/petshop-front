@@ -2,7 +2,7 @@
 
 <template>
     <div class='card'>
-        <slot></slot>
+        <div class='slot'><slot></slot></div>
         <h3>{{ name }}</h3>
         <h4> ${{ parseFloat(price).toFixed(2) }}</h4>
         <h5>{{ marca }}</h5>
@@ -45,8 +45,7 @@ export default {
     .card p{
         word-break: keep-all;
     }
-    .card slot{
-        background:red;
+    .card .slot img{
         height: 150px;
         object-fit: cover;
     }
@@ -69,18 +68,5 @@ export default {
     }
     .card router-link:hover{
         filter: brightness(1.2);
-    }
-
-    SecondHeader router-link{
-        background-color: white;
-        color: var(--maincolor);
-        padding: 10px;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-        margin-left: 15px;
-    }
-
-    SecondHeader router-link:hover{
-        filter: brightness(1.2);
-        box-shadow: 1px 1px 8px rgba(0,0,0,0.7);
     }
 </style>

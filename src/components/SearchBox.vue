@@ -1,5 +1,5 @@
 <template>
-    <Card>
+    <Card class='searchBox'>
         <h3>Search</h3>
         <form>
             <input type="text" name="searchPrompt" placeholder="Ex.: Dog food" />

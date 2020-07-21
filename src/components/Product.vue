@@ -1,13 +1,13 @@
 <!-- TODO Translate 'marca' -->
 
 <template>
-    <div class='card'>
+    <div class='productCard'>
         <div class='slot'><slot></slot></div>
         <h3>{{ name }}</h3>
-        <h4> ${{ parseFloat(price).toFixed(2) }}</h4>
+        <h4>${{ parseFloat(price).toFixed(2) }}</h4>
         <h5>{{ marca }}</h5>
         <p>{{ desc }}</p>
-        <router-link to='/'><img src='@/assets/cart.png' alt='cart' />Add to cart</router-link>
+        <router-link to='/' class='cart'><img src='@/assets/cart.png' alt='cart' />Add to cart</router-link>
     </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style scoped>
-    .card {
+    .productCard {
         background: whitesmoke;
         padding: 20px;
         width: 240px;
@@ -36,20 +36,20 @@ export default {
         justify-content: space-between;
         align-items: center;
     }
-    .card *{
+    .productCard *{
         padding: 5px;
     }
-    .card h5, .card p{
+    .productCard h5, .card p{
         color: gray;
     }
-    .card p{
+    .productCard p{
         word-break: keep-all;
     }
-    .card .slot img{
+    .productCard .slot img{
         height: 150px;
         object-fit: cover;
     }
-    .card router-link{
+    .productCard .cart{
         background: var(--secondarycolor);
         width: 100%;
         border: none;
@@ -62,11 +62,11 @@ export default {
         align-items: center;
         justify-content: center;
     }
-    .card router-link img{
+    .productCard .cart img{
         height: 24px;
         padding-right: 10px;
     }
-    .card router-link:hover{
+    .productCard .cart:hover{
         filter: brightness(1.2);
     }
 </style>

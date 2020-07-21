@@ -12,22 +12,22 @@ const routes = [
     component: Open,
     children: [
       {
-        path: '/',
+        path: '',
         name: 'Home',
         component: () => import(/* webpackChunckName: 'Home' */ '../views/Home.vue')
       },
       {
-        path: '/login',
+        path: 'login',
         name: 'Login',
         component: () => import(/* webpackChunckName: 'Home' */ '../views/Login.vue')
       },
       {
-        path: '/register',
+        path: 'register',
         name: 'Register',
         component: () => import(/* webpackChunckName: 'Home' */ '../views/Register.vue')
       },
       {
-        path: '/404',
+        path: '404',
         name: 'NotFound',
         component: () => import(/* webpackChunckName: 'NotFound' */ '../views/NotFound.vue')
       }
@@ -39,7 +39,12 @@ const routes = [
     component: Client,
     children: [
       {
-        path: '/',
+        path: '',
+        name: 'Store',
+        component: () => import('../views/Shop.vue')
+      },
+      {
+        path: 'profile',
         name: 'Profile',
         component: () => import('../views/Profile.vue')
       }

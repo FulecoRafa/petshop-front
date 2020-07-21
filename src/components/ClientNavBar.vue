@@ -15,7 +15,7 @@
             <div class='dropdown'>
                 <ul>
                     <li>
-                        <router-link to='/'>
+                        <router-link to='/client/profile'>
                             <img class='dropdownIcon' src='@/assets/business-and-finance.png' alt='prof'>
                             <h4>Profile</h4>
                         </router-link>

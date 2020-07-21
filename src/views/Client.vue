@@ -1,18 +1,18 @@
 <template>
   <div class='home'>
-    <UserNavBar></UserNavBar>
+    <ClientNavBar></ClientNavBar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import UserNavBar from '@/components/ClientNavBar.vue';
+import ClientNavBar from '@/components/ClientNavBar.vue';
 
 export default {
   name: 'Test',
   components: {
-      UserNavBar
+      ClientNavBar
   }
 }
 </script>

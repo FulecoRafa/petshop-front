@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Open from '../views/Open.vue'
-import Client from '../views/Client.vue'
+import Client from '../views/client/Client.vue'
 
 Vue.use(VueRouter)
 
@@ -41,12 +41,12 @@ const routes = [
       {
         path: '',
         name: 'Store',
-        component: () => import('../views/Shop.vue')
+        component: () => import('../views/client/Shop.vue')
       },
       {
         path: 'profile',
         name: 'Profile',
-        component: () => import('../views/Profile.vue')
+        component: () => import('../views/client/Profile.vue')
       }
     ]
   },

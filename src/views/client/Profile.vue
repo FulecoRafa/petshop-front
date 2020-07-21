@@ -1,8 +1,8 @@
 <template>
-<div id='asdasfd'>
+<div id='Profile'>
     <SecondHeader title='Profile'>
-        <router-link to='/'>Edit profile</router-link>
-        <router-link to='/' style='background-color: red;color: white;'>Delete profile</router-link>
+        <router-link to='/' class='button'>Edit profile</router-link>
+        <router-link to='/' class='button' style='background-color: red;color: white;'>Delete profile</router-link>
     </SecondHeader>
     <div class='content'>
         <Card>
@@ -47,20 +47,20 @@ export default {
 
 <style scoped>
     #profilePic{
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
     }
     #profilePic img{
-    max-width: 200px;
-    max-height: 200px;
+        max-width: 200px;
+        max-height: 200px;
     }
 
     #profileContent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
     }
 
     #profileContent *{
@@ -96,4 +96,17 @@ export default {
         justify-content: unset;
         width: 100%;
     }
+
+    .button {
+        background-color: white;
+        color: var(--maincolor);
+        padding: 10px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        margin-left: 15px;
+    }
+    .button:hover{
+        filter: brightness(1.2);
+        box-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+    }
+
 </style>

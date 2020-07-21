@@ -15,7 +15,7 @@ export default {
 
 <style scoped>
     .card{
-        background: white;
+        background: var(--cardcolor);
         max-width: 80vw;
         text-align: center;
         padding: 25px;

@@ -30,7 +30,7 @@
     --headercolor: rgb(247, 247, 247);
     --maincolor: rgb(0, 39, 212);
     --secondarycolor: rgb(62, 91, 223);
-    --cardcolor: rgb(230, 230, 230);
+    --cardcolor: white /*rgb(230, 230, 230)*/;
     --screen: linear-gradient(rgba(113, 103, 202, 0.3), rgba(113, 103, 202, 0.3));
     --gradient: linear-gradient(rgb(0, 39, 212), rgb(62, 91, 223));
     

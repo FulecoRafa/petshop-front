@@ -7,7 +7,7 @@
                 <img src='@/assets/kennel.png' alt='kennel'>
         </router-link>
         
-        <div class='dropdownWrapper'>
+        <div class='wrapper'>
             <router-link to='/client/profile'>
                 <div id='login'>
                     <h4>Fulano</h4>
@@ -18,19 +18,19 @@
                 <ul>
                     <li>
                         <router-link to='/client/profile'>
-                            <img class='dropdownIcon' src='@/assets/business-and-finance.png' alt='prof'>
+                            <img class='icon' src='@/assets/business-and-finance.png' alt='prof'>
                             <h4>Profile</h4>
                         </router-link>
                     </li>
                     <li>
                         <router-link to='/client'>
-                            <img class='dropdownIcon' src='@/assets/shopping.png' alt='shopping'>
+                            <img class='icon' src='@/assets/shopping.png' alt='shopping'>
                             <h4>Shop</h4>
                         </router-link>
                     </li>
                     <li>
                         <router-link to='/'>
-                            <img class='dropdownIcon' src='@/assets/cart.png' alt='cart'>
+                            <img class='icon' src='@/assets/cart.png' alt='cart'>
                             <h4>Cart</h4>
                             <div class='pop'>3</div>
                         </router-link>
@@ -44,13 +44,13 @@
                     </li>
                     <li>
                         <router-link to='/'>
-                            <img class='dropdownIcon' src='@/assets/tools-and-utensils.png' alt='scissors'>
+                            <img class='icon' src='@/assets/tools-and-utensils.png' alt='scissors'>
                             <h4>Services</h4>
                         </router-link>
                     </li>
                     <li>
                         <router-link to='/'>
-                            <img class='dropdownIcon' src='@/assets/sign.png' alt='exit'>
+                            <img class='icon' src='@/assets/sign.png' alt='exit'>
                             <h4>Log out</h4>
                         </router-link>
                     </li>
@@ -106,7 +106,7 @@ export default {
         padding-left: 25px;
     } 
 
-    .dropdownWrapper:hover .dropdown{
+    .wrapper:hover .dropdown{
         display: block;
     }
 

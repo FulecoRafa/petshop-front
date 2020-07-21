@@ -1,14 +1,14 @@
 <template>
-  <div class="card" :class="{lefty: lefty}">
+  <div class='card' :class='{lefty: lefty}'>
       <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-    name: "Card",
+    name: 'Card',
     props: [
-        "lefty"
+        'lefty'
     ]
 }
 </script>

@@ -1,11 +1,11 @@
 <template>
-    <header id="header">
-        <router-link to="/" id="logo">
+    <header id='header'>
+        <router-link to='/' id='logo'>
             <h1>Le Furry</h1>
-            <img src="@/assets/kennel.png" alt="kennel">
+            <img src='@/assets/kennel.png' alt='kennel'>
         </router-link>
         <router-link to='/login'>
-            <div id="login">
+            <div id='login'>
                 <h4>Login</h4>
                 <img src='@/assets/profile.png' alt='profilePic' />
             </div>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-    name: "OpenNavBar"
+    name: 'OpenNavBar'
 }
 </script>
 

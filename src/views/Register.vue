@@ -1,8 +1,8 @@
 <template>
-  <div class="content">
+  <div class='content'>
       <Card>
           <h1>Register</h1>
-            <form id="login-form">
+            <form id='login-form'>
                 <div class='inputwrap'>
                     <h3>Name:</h3>
                     <input type='text' name='name' placeholder='Full name' required autoFocus />
@@ -42,7 +42,7 @@
 import Card from '../components/Card'
 
 export default {
-    name: "Content",
+    name: 'Content',
     components: {
         Card
     }
@@ -80,8 +80,8 @@ export default {
     background: unset;
 }
 
-#login-form input[name="phone"]:invalid::after{
-    content: "Invalid phone number";
+#login-form input[name='phone']:invalid::after{
+    content: 'Invalid phone number';
     color: red;
     font-size: 10px;
     

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class='home'>
     <UserNavBar></UserNavBar>
     <router-view></router-view>
   </div>

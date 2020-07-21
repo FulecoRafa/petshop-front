@@ -14,22 +14,22 @@ const routes = [
       {
         path: '/',
         name: 'Home',
-        component: () => import(/* webpackChunckName: "Home" */ '../views/Home.vue')
+        component: () => import(/* webpackChunckName: 'Home' */ '../views/Home.vue')
       },
       {
         path: '/login',
         name: 'Login',
-        component: () => import(/* webpackChunckName: "Home" */ '../views/Login.vue')
+        component: () => import(/* webpackChunckName: 'Home' */ '../views/Login.vue')
       },
       {
         path: '/register',
         name: 'Register',
-        component: () => import(/* webpackChunckName: "Home" */ '../views/Register.vue')
+        component: () => import(/* webpackChunckName: 'Home' */ '../views/Register.vue')
       },
       {
         path: '/404',
         name: 'NotFound',
-        component: () => import(/* webpackChunckName: "NotFound" */ '../views/NotFound.vue')
+        component: () => import(/* webpackChunckName: 'NotFound' */ '../views/NotFound.vue')
       }
     ]
   },
@@ -39,7 +39,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: 'about' */ '../views/About.vue')
   },
   {
     path: '/client',
@@ -48,8 +48,8 @@ const routes = [
     children: [
       {
         path: '/',
-        name: 'Test',
-        component: () => import('../views/Test.vue')
+        name: 'Profile',
+        component: () => import('../views/Profile.vue')
       }
     ]
   },

@@ -1,12 +1,12 @@
 <template>
-    <div class="content">
+    <div class='content'>
         <Card>
-        <div class="imaged">
-            <div class="message">
+        <div class='imaged'>
+            <div class='message'>
                 <h1>Error 404</h1>
-                <h2>We couldn't find the page you're looking for. <br> Why don't we go back to <router-link to="/" class="link">The Home Page</router-link> and then we can help you?</h2>
+                <h2>We couldn't find the page you're looking for. <br> Why don't we go back to <router-link to='/' class='link'>The Home Page</router-link> and then we can help you?</h2>
             </div>
-            <img src="../assets/confused.jpg" alt="confused-dog">
+            <img src='../assets/confused.jpg' alt='confused-dog'>
         </div>
     </Card>
     </div>
@@ -16,7 +16,7 @@
 import Card from '../components/Card';
 
 export default {
-    name:"NotFound",
+    name:'NotFound',
     components:{
         Card
     } 

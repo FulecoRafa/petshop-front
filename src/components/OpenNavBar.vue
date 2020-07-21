@@ -1,5 +1,5 @@
 <template>
-    <header id='header'>
+    <header id='navBar'>
         <router-link to='/' id='logo'>
             <h1>Le Furry</h1>
             <img src='@/assets/kennel.png' alt='kennel'>
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style scoped>
-    #header{
+    #navBar{
         display: flex;
         height: 70px;
         align-items: center;

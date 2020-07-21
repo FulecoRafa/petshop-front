@@ -1,7 +1,7 @@
 <!-- TODO Translate 'marca' -->
 
 <template>
-    <div class='productCard'>
+    <div class='card'>
         <slot></slot>
         <h3>{{ name }}</h3>
         <h4> ${{ parseFloat(price).toFixed(2) }}</h4>
@@ -23,8 +23,8 @@ export default {
 }
 </script>
 
-<style>
-    .productCard {
+<style scoped>
+    .card {
         background: whitesmoke;
         padding: 20px;
         width: 240px;
@@ -36,20 +36,20 @@ export default {
         justify-content: space-between;
         align-items: center;
     }
-    .productCard *{
+    .card *{
         padding: 5px;
     }
     .productCard h5, .productCard p{
         color: gray;
     }
-    .productCard p{
+    .card p{
         word-break: keep-all;
     }
-    .productCard img{
+    .card img{
         height: 150px;
         object-fit: cover;
     }
-    .productCard route-link{
+    .card route-link{
         background: var(--secondarycolor);
         width: 100%;
         border: none;
@@ -62,11 +62,11 @@ export default {
         align-items: center;
         justify-content: center;
     }
-    .productCard route-link img{
+    .card route-link img{
         height: 24px;
         padding-right: 10px;
     }
-    .productCard route-link:hover{
+    .card route-link:hover{
         filter: brightness(1.2);
     }
 </style>

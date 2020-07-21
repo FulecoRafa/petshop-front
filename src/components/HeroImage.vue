@@ -13,7 +13,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .heroImage{
     position: relative;
     background-image: url('../assets/dog.jpg');

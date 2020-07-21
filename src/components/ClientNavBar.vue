@@ -1,17 +1,19 @@
 <!-- TODO colocar links -->
 
 <template>
-    <header id='header'>
+    <header id='navBar'>
         <router-link to='/' id='logo'>
                 <h1>Le Furry</h1>
                 <img src='@/assets/kennel.png' alt='kennel'>
         </router-link>
         
         <div class='dropdownWrapper'>
-            <div id='login'>
-                <h4>Fulano</h4>
-                <img src='@/assets/profile.png' alt='profilePic' />
-            </div>
+            <router-link to='/client/profile'>
+                <div id='login'>
+                    <h4>Fulano</h4>
+                    <img src='@/assets/profile.png' alt='profilePic' />
+                </div>
+            </router-link>
             <div class='dropdown'>
                 <ul>
                     <li>
@@ -64,8 +66,8 @@ export default {
 }
 </script>
 
-<style Scoped>
-    #header{
+<style scoped>
+    #navBar{
         display: flex;
         height: 70px;
         align-items: center;

@@ -1,9 +1,6 @@
 <template>
-    <div class='shop'>
-        <SecondHeader title='Profile'>
-            <router-link to='/'>Edit profile</router-link>
-            <router-link to='' style='background-color: red;color: white;'>Delete profile</router-link>
-        </SecondHeader>
+    <div>
+        <SecondHeader title='Shop'></SecondHeader>
         <SearchBox></SearchBox>
         <Card>
             <Product name='Dog food' price='20.99' marca='Crunchie bites' desc='Box food for dogs'>
@@ -20,7 +17,7 @@ import SecondHeader from '@/components/SecondHeader.vue'
 
 export default {
     name: 'Shop',
-    componets: {
+    components: {
         Card,
         Product,
         SearchBox,

@@ -134,4 +134,15 @@ export default {
         align-items: center;
         justify-content: space-between;
     }
+
+    .pop{
+        position: absolute;
+        left: 2%;
+        padding: 3px 7px;
+        background: red;
+        border-radius: 50%;
+        color: white;
+        font-size: 12px;
+        transform: translate(30%, -70%);
+    }
 </style>

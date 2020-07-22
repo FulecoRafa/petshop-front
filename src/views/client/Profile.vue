@@ -1,8 +1,8 @@
 <template>
 <div id='profile'>
     <SecondHeader title='Profile'>
-        <router-link to='/' class='button'>Edit profile</router-link>
-        <router-link to='/' class='button' style='background-color: red;color: white;'>Delete profile</router-link>
+        <router-link to='/client/edit' class='button'>Edit profile</router-link>
+        <router-link to='/404' class='button' style='background-color: red;color: white;'>Delete profile</router-link>
     </SecondHeader>
     <div class='content'>
         <Card>

@@ -66,7 +66,7 @@ export default {
     margin-left: 0px;
 }
 
-#profileContent route-link{
+#profileContent .button{
     background: var(--secondarycolor);
     width: 100%;
     border: none;
@@ -76,7 +76,7 @@ export default {
     font-weight: 500;
     cursor: pointer;
 }
-#profileContent route-link:hover{
+#profileContent .button:hover{
     filter: brightness(1.2);
 }
 

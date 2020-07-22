@@ -7,7 +7,7 @@
         <h4>${{ parseFloat(price).toFixed(2) }}</h4>
         <h5>{{ marca }}</h5>
         <p>{{ desc }}</p>
-        <router-link to='/' class='cart'><img src='@/assets/cart.png' alt='cart' />Add to cart</router-link>
+        <router-link to='/'><img src='@/assets/cart.png' alt='cart' />Add to cart</router-link>
     </div>
 </template>
 
@@ -39,7 +39,7 @@ export default {
 .productCard *{
     padding: 5px;
 }
-.productCard h5, .card p{
+.productCard h5, .productCard a p{
     color: gray;
 }
 .productCard p{
@@ -49,7 +49,7 @@ export default {
     height: 150px;
     object-fit: cover;
 }
-.productCard .cart{
+.productCard a{
     background: var(--secondarycolor);
     width: 100%;
     border: none;
@@ -62,11 +62,11 @@ export default {
     align-items: center;
     justify-content: center;
 }
-.productCard .cart img{
+.productCard a img{
     height: 24px;
     padding-right: 10px;
 }
-.productCard .cart:hover{
+.productCard a:hover{
     filter: brightness(1.2);
 }
 </style>

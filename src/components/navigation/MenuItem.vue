@@ -1,6 +1,6 @@
 <template>
     <li class='menuItem'>
-        <router-link class='link' :to='to'>
+        <router-link :to='to'>
             <slot></slot>
             <h4>{{ label }}</h4>
             <div v-if='val' class='pop'>{{ val }}</div>
@@ -16,25 +16,25 @@ export default {
 </script>
 
 <style scoped>
-.menuItem{
+.menuItem {
     padding: 5px 20px;
     margin: 10px 0;
     background: var(--secondarycolor);
     cursor: pointer;
 }
-.menuItem:hover{
+.menuItem:hover {
     filter: brightness(1.2);
 }
-.menuItem .link{
+.menuItem a {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.menuItem img{
+.menuItem img {
     height: 50px;
     padding-left: 25px;
 }
-.pop{
+.pop {
     position: absolute;
     left: 2%;
     padding: 3px 7px;

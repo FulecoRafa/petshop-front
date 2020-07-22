@@ -33,7 +33,7 @@
                 </div>
                 <input type='submit' value='Register' />
             </form>
-            <router-link to='/login' class='link'>Login</router-link>
+            <router-link to='/login'>Login</router-link>
       </Card>
   </div>
 </template>

@@ -21,13 +21,13 @@
             <MenuItem label='Cart' to='/client/cart' val='3'>
                 <img src='@/assets/cart.png' alt='cart'>
             </MenuItem>
-            <MenuItem label='My Pets' to='/' val='2'>
+            <MenuItem label='My Pets' to='/404' val='2'>
                 <img src='@/assets/collar.png' alt='collar'>
             </MenuItem>
-            <MenuItem label='My Pets' to='/'>
+            <MenuItem label='My Pets' to='/404'>
                 <img src='@/assets/tools-and-utensils.png' alt='scissors'>
             </MenuItem>
-            <MenuItem label='Log out' to='/'>
+            <MenuItem label='Log out' to='/404'>
                 <img src='@/assets/sign.png' alt='exit'>
             </MenuItem>            
         </Menu>

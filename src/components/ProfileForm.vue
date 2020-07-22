@@ -26,7 +26,7 @@
         </div>
         <div class='inputwrap'>
             <h3>Confirm Password:</h3>
-            <input type='password' name='passwd2' :class="mismatch ? 'passMismatch' : ''" required />
+            <input type='password' name='passwd2' :class='{passMismatch: mismatch}' required />
         </div>
         <input type='submit' :value="submit || 'Submit'">
     </form>

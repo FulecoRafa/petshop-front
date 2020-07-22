@@ -1,6 +1,6 @@
 <template>
     <div class='dataWrap'>
-        <h3>{{ label }}:</h3>
+        <h3 v-if='label'>{{ label }}:</h3>
         <p><slot></slot></p>
     </div>
 </template>

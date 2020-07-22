@@ -24,7 +24,6 @@ export default {
 </script>
 
 <style scoped>
-
 .imaged{
     display: flex;
     align-items: center;
@@ -39,5 +38,4 @@ export default {
 .message a{
     color: var(--maincolor);
 }
-
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div class='home'>
-    <OpenNavBar></OpenNavBar>
-    <router-view></router-view>
-  </div>
+    <div class='home'>
+        <OpenNavBar></OpenNavBar>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
@@ -10,9 +10,9 @@
 import OpenNavBar from '@/components/OpenNavBar.vue';
 
 export default {
-  name: 'Home',
-  components: {
-    OpenNavBar
-  }
+    name: 'Home',
+    components: {
+        OpenNavBar
+    }
 }
 </script>

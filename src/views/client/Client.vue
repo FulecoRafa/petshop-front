@@ -1,8 +1,8 @@
 <template>
-  <div class='home'>
-    <ClientNavBar></ClientNavBar>
-    <router-view></router-view>
-  </div>
+    <div class='home'>
+        <ClientNavBar></ClientNavBar>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
@@ -11,8 +11,8 @@ import ClientNavBar from '@/components/ClientNavBar.vue';
 
 export default {
   name: 'Test',
-  components: {
-      ClientNavBar
-  }
+    components: {
+        ClientNavBar
+    }
 }
 </script>

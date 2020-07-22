@@ -67,84 +67,84 @@ export default {
 </script>
 
 <style scoped>
-    #navBar{
-        display: flex;
-        height: 70px;
-        align-items: center;
-        justify-content: space-between;
-        background-color: var(--maincolor);
-        padding: none;
-        color: var(--headercolor);
-        font-weight: bolder;
-    }
+#navBar{
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--maincolor);
+    padding: none;
+    color: var(--headercolor);
+    font-weight: bolder;
+}
 
-    #logo{
-        display: flex;
-        align-items: center;
-    }
-    #logo img{
-        padding-left: 20px;
-    }
+#logo{
+    display: flex;
+    align-items: center;
+}
+#logo img{
+    padding-left: 20px;
+}
 
-    #header h1{
-        padding: 10px 0 10px 20px;
-    }
+#header h1{
+    padding: 10px 0 10px 20px;
+}
 
-    #login{
-        display: flex;
-        align-items: center;
-        padding: 10px 15px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    #login:hover{
-        background-color: rgba(255,255,255,0.3);
-    }
+#login{
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#login:hover{
+    background-color: rgba(255,255,255,0.3);
+}
 
-    #login img{
-        height: 50px;
-        padding-left: 25px;
-    } 
+#login img{
+    height: 50px;
+    padding-left: 25px;
+} 
 
-    .dorpdownWrapper:hover .dropdown{
-        display: block;
-    }
+.dorpdownWrapper:hover .dropdown{
+    display: block;
+}
 
-    .dropdown {
-        position: absolute;
-        top: 60px;
-        background: var(--secondarycolor);
-        z-index: 100000;
-        display: none;
-    }
+.dropdown {
+    position: absolute;
+    top: 60px;
+    background: var(--secondarycolor);
+    z-index: 100000;
+    display: none;
+}
 
-    .dropdown ul{
-        list-style: none;
-    }
+.dropdown ul{
+    list-style: none;
+}
 
-    .dropdown ul li{
-        padding: 5px 20px;
-        margin: 10px 0;
-        background: var(--secondarycolor);
-        cursor: pointer;
-    }
-    .dropdown ul li:hover{
-        filter: brightness(1.2);
-    }
-    .dropdown ul li a{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+.dropdown ul li{
+    padding: 5px 20px;
+    margin: 10px 0;
+    background: var(--secondarycolor);
+    cursor: pointer;
+}
+.dropdown ul li:hover{
+    filter: brightness(1.2);
+}
+.dropdown ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-    .pop{
-        position: absolute;
-        left: 2%;
-        padding: 3px 7px;
-        background: red;
-        border-radius: 50%;
-        color: white;
-        font-size: 12px;
-        transform: translate(30%, -70%);
-    }
+.pop{
+    position: absolute;
+    left: 2%;
+    padding: 3px 7px;
+    background: red;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    transform: translate(30%, -70%);
+}
 </style>

@@ -24,49 +24,49 @@ export default {
 </script>
 
 <style scoped>
-    .productCard {
-        background: whitesmoke;
-        padding: 20px;
-        width: 240px;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-        margin-right: 60px;
-        margin-bottom: 30px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .productCard *{
-        padding: 5px;
-    }
-    .productCard h5, .card p{
-        color: gray;
-    }
-    .productCard p{
-        word-break: keep-all;
-    }
-    .productCard .slot img{
-        height: 150px;
-        object-fit: cover;
-    }
-    .productCard .cart{
-        background: var(--secondarycolor);
-        width: 100%;
-        border: none;
-        border-radius: 1px;
-        color: white;
-        font-size: 20px;
-        font-weight: 500;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .productCard .cart img{
-        height: 24px;
-        padding-right: 10px;
-    }
-    .productCard .cart:hover{
-        filter: brightness(1.2);
-    }
+.productCard {
+    background: whitesmoke;
+    padding: 20px;
+    width: 240px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    margin-right: 60px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.productCard *{
+    padding: 5px;
+}
+.productCard h5, .card p{
+    color: gray;
+}
+.productCard p{
+    word-break: keep-all;
+}
+.productCard .slot img{
+    height: 150px;
+    object-fit: cover;
+}
+.productCard .cart{
+    background: var(--secondarycolor);
+    width: 100%;
+    border: none;
+    border-radius: 1px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.productCard .cart img{
+    height: 24px;
+    padding-right: 10px;
+}
+.productCard .cart:hover{
+    filter: brightness(1.2);
+}
 </style>

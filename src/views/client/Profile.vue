@@ -46,67 +46,66 @@ export default {
 </script>
 
 <style scoped>
-    #profilePic{
-        display: flex;
-        flex-direction: column;
-        justify-self: center;
-    }
-    #profilePic img{
-        max-width: 200px;
-        max-height: 200px;
-    }
+#profilePic{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+#profilePic img{
+    max-width: 200px;
+    max-height: 200px;
+}
 
-    #profileContent{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-    }
+#profileContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
 
-    #profileContent *{
-        margin: 10px;
-        padding: 5px;
-    }
+#profileContent *{
+    margin: 10px;
+    padding: 5px;
+}
 
-    /* Reducing the space between the label and the data */
-    #profileContent .datawrap>h3{
-        margin-right: 0px;
-    }
-    #profileContent .datawrap>p{
-        margin-left: 0px;
-    }
+/* Reducing the space between the label and the data */
+#profileContent .datawrap>h3{
+    margin-right: 0px;
+}
+#profileContent .datawrap>p{
+    margin-left: 0px;
+}
 
-    #profileContent route-link{
-        background: var(--secondarycolor);
-        width: 100%;
-        border: none;
-        border-radius: 1px;
-        color: white;
-        font-size: 20px;
-        font-weight: 500;
-        cursor: pointer;
-    }
-    #profileContent route-link:hover{
-        filter: brightness(1.2);
-    }
+#profileContent route-link{
+    background: var(--secondarycolor);
+    width: 100%;
+    border: none;
+    border-radius: 1px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+#profileContent route-link:hover{
+    filter: brightness(1.2);
+}
 
-    .datawrap{
-        display: flex;
-        align-items: center;
-        justify-content: unset;
-        width: 100%;
-    }
+.datawrap{
+    display: flex;
+    align-items: center;
+    justify-content: unset;
+    width: 100%;
+}
 
-    .button {
-        background-color: white;
-        color: var(--maincolor);
-        padding: 10px;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-        margin-left: 15px;
-    }
-    .button:hover{
-        filter: brightness(1.2);
-        box-shadow: 1px 1px 8px rgba(0,0,0,0.7);
-    }
-
+.button {
+    background-color: white;
+    color: var(--maincolor);
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    margin-left: 15px;
+}
+.button:hover{
+    filter: brightness(1.2);
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+}
 </style>

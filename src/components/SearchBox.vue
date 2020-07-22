@@ -20,4 +20,20 @@ export default {
 </script>
 
 <style scoped>
+.searchBox{
+    text-align: left;
+    width: 100%;
+}
+
+.searchBox input[type=text]{
+    width: 70%;
+}
+
+.searchBox input[type=submit]{
+    background: none;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
 </style>

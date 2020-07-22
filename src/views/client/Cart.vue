@@ -1,3 +1,5 @@
+<!-- TODO I think the array index isn't a good key -->
+
 <template>
     <div class='cart'>
         <div v-for='({quantity, product} , key) in items' :key='key'>
@@ -42,16 +44,13 @@ export default {
     }),
     methods: {
         remove(item) {
-            console.log(`Remove ${item}`)
+            this.items.splice(item, 1)
         },
         increment(item) {
-            console.log(`inc ${item}`)
+            this.items[item].quantity++;
         },
         decrement(item) {
-            console.log(`dec ${item}`)
-        },
-        update(item, x){
-            console.log(`up ${item} to ${x}`)
+            this.items[item].quantity--;
         }
     }
 }

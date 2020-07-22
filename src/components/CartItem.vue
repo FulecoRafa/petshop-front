@@ -12,7 +12,7 @@
         </div>
 
         <div class='unit-price'>
-            <span>{{ price }}</span>
+            <span>Unit price</span>
             <span>${{ parseFloat(price).toFixed(2) }}</span>
         </div>
 

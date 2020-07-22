@@ -1,5 +1,5 @@
 <template>
-    <Card lefty>
+    <Card lefty='true'>
         <div class='petAvatar'>
             <Data class='profile-pic'>
                 <img v-if='images[type]' :src='require(`@/assets/${images[type].src}`)' alt="profilePic">
@@ -53,6 +53,11 @@ export default {
   margin: 10px;
   padding: 5px;
 }
+.petAvatar img{
+  max-width: 200px;
+  max-height: 200px;
+}
+
 
 /* Reducing the space between the label and the data */
 .petAvatar .data ::v-deep h3{

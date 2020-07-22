@@ -1,27 +1,29 @@
 <!-- TODO colocar links -->
 
 <template>
-    <header id='header'>
+    <header id='navBar'>
         <router-link to='/' id='logo'>
                 <h1>Le Furry</h1>
                 <img src='@/assets/kennel.png' alt='kennel'>
         </router-link>
         
         <div class='dropdownWrapper'>
-            <div id='login'>
-                <h4>Fulano</h4>
-                <img src='@/assets/profile.png' alt='profilePic' />
-            </div>
+            <router-link to='/client/profile'>
+                <div id='login'>
+                    <h4>Fulano</h4>
+                    <img src='@/assets/profile.png' alt='profilePic' />
+                </div>
+            </router-link>
             <div class='dropdown'>
                 <ul>
                     <li>
-                        <router-link to='/'>
+                        <router-link to='/client/profile'>
                             <img class='dropdownIcon' src='@/assets/business-and-finance.png' alt='prof'>
                             <h4>Profile</h4>
                         </router-link>
                     </li>
                     <li>
-                        <router-link to='/'>
+                        <router-link to='/client'>
                             <img class='dropdownIcon' src='@/assets/shopping.png' alt='shopping'>
                             <h4>Shop</h4>
                         </router-link>
@@ -64,74 +66,85 @@ export default {
 }
 </script>
 
-<style Scoped>
-    #header{
-        display: flex;
-        height: 70px;
-        align-items: center;
-        justify-content: space-between;
-        background-color: var(--maincolor);
-        padding: none;
-        color: var(--headercolor);
-        font-weight: bolder;
-    }
+<style scoped>
+#navBar{
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--maincolor);
+    padding: none;
+    color: var(--headercolor);
+    font-weight: bolder;
+}
 
-    #logo{
-        display: flex;
-        align-items: center;
-    }
-    #logo img{
-        padding-left: 20px;
-    }
+#logo{
+    display: flex;
+    align-items: center;
+}
+#logo img{
+    padding-left: 20px;
+}
 
-    #header h1{
-        padding: 10px 0 10px 20px;
-    }
+#header h1{
+    padding: 10px 0 10px 20px;
+}
 
-    #login{
-        display: flex;
-        align-items: center;
-        padding: 10px 15px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    #login:hover{
-        background-color: rgba(255,255,255,0.3);
-    }
+#login{
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#login:hover{
+    background-color: rgba(255,255,255,0.3);
+}
 
-    #login img{
-        height: 50px;
-        padding-left: 25px;
-    } 
+#login img{
+    height: 50px;
+    padding-left: 25px;
+} 
 
-    .dropdownWrapper:hover .dropdown{
-        display: block;
-    }
+.dropdownWrapper:hover .dropdown{
+    display: block;
+}
 
-    .dropdown {
-        position: absolute;
-        top: 60px;
-        background: var(--secondarycolor);
-        z-index: 100000;
-        display: none;
-    }
+.dropdown {
+    position: absolute;
+    top: 60px;
+    background: var(--secondarycolor);
+    z-index: 100000;
+    display: none;
+}
 
-    .dropdown ul{
-        list-style: none;
-    }
+.dropdown ul{
+    list-style: none;
+}
 
-    .dropdown ul li{
-        padding: 5px 20px;
-        margin: 10px 0;
-        background: var(--secondarycolor);
-        cursor: pointer;
-    }
-    .dropdown ul li:hover{
-        filter: brightness(1.2);
-    }
-    .dropdown ul li a{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+.dropdown ul li{
+    padding: 5px 20px;
+    margin: 10px 0;
+    background: var(--secondarycolor);
+    cursor: pointer;
+}
+.dropdown ul li:hover{
+    filter: brightness(1.2);
+}
+.dropdown ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pop{
+    position: absolute;
+    left: 2%;
+    padding: 3px 7px;
+    background: red;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    transform: translate(30%, -70%);
+}
 </style>

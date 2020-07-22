@@ -1,14 +1,13 @@
 <template>
-<div id='asdasfd'>
-    <header id='secondHeader'>
-        <h1>Profile</h1>
-        <route-link to='/'>Edit profile</route-link>
-        <route-link to='' style='background-color: red;color: white;'>Delete profile</route-link>
-    </header>
+<div id='profile'>
+    <SecondHeader title='Profile'>
+        <router-link to='/' class='button'>Edit profile</router-link>
+        <router-link to='/' class='button' style='background-color: red;color: white;'>Delete profile</router-link>
+    </SecondHeader>
     <div class='content'>
-        <div class='card'>
+        <Card>
             <div id='profileContent'>
-                <div class='datawrap' id='profile-pic'>
+                <div class='datawrap' id='profilePic'>
                     <img src='@/assets/avatar2.png' alt='profilePic'>
                 </div>
                 <div class='datawrap'>
@@ -28,51 +27,56 @@
                     <p>(01) 9 2345-6789</p>
                 </div>
             </div>
-        </div>
+        </Card>
     </div>
 </div>
 </template>
 
 <script>
+import Card from '@/components/Card'
+import SecondHeader from '@/components/SecondHeader'
+
 export default {
-    name: 'Test',
-    components:{
+    name: 'Profile',
+    components: {
+        Card,
+        SecondHeader
     }
 }
 </script>
 
 <style scoped>
-    #profile-pic{
+#profilePic{
     display: flex;
     flex-direction: column;
     justify-self: center;
-    }
-    #profile-pic img{
+}
+#profilePic img{
     max-width: 200px;
     max-height: 200px;
-    }
+}
 
-    #profile-content{
+#profileContent{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    }
+}
 
-    #profile-content *{
+#profileContent *{
     margin: 10px;
     padding: 5px;
-    }
+}
 
-    /* Reducing the space between the label and the data */
-    #profile-content .datawrap>h3{
-        margin-right: 0px;
-    }
-    #profile-content .datawrap>p{
-        margin-left: 0px;
-    }
+/* Reducing the space between the label and the data */
+#profileContent .datawrap>h3{
+    margin-right: 0px;
+}
+#profileContent .datawrap>p{
+    margin-left: 0px;
+}
 
-    #profile-content a{
+#profileContent route-link{
     background: var(--secondarycolor);
     width: 100%;
     border: none;
@@ -81,40 +85,27 @@ export default {
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
-    }
-    #profile-content a:hover{
+}
+#profileContent route-link:hover{
     filter: brightness(1.2);
-    }
+}
 
-    .datawrap{
+.datawrap{
     display: flex;
     align-items: center;
     justify-content: unset;
     width: 100%;
-    }
+}
 
-    #secondHeader{
-        display: flex;
-        height: 60px;
-        align-items: center;
-        justify-content: flex-start;
-        background-color: var(--secondarycolor);
-        padding: none;
-        color: var(--headercolor);
-        font-weight: bolder;
-    }
-    #secondHeader h1{
-        padding: 10px 60px 10px 20px;
-    }
-    #secondHeader route-link{
-        background-color: white;
-        color: var(--maincolor);
-        padding: 10px;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-        margin-left: 15px;
-    }
-    #secondHeader a:hover{
-        filter: brightness(1.2);
-        box-shadow: 1px 1px 8px rgba(0,0,0,0.7);
-    }
+.button {
+    background-color: white;
+    color: var(--maincolor);
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    margin-left: 15px;
+}
+.button:hover{
+    filter: brightness(1.2);
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+}
 </style>

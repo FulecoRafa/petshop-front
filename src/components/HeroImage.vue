@@ -9,11 +9,11 @@
 
 <script>
 export default {
-    name: 'HeroImage.vue'
+    name: 'HeroImage'
 }
 </script>
 
-<style>
+<style scoped>
 .heroImage{
     position: relative;
     background-image: url('../assets/dog.jpg');

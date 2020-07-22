@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Card from '../components/Card';
+import Card from '@/components/Card';
 
 export default {
     name:'NotFound',
@@ -24,7 +24,6 @@ export default {
 </script>
 
 <style scoped>
-
 .imaged{
     display: flex;
     align-items: center;
@@ -39,5 +38,4 @@ export default {
 .message a{
     color: var(--maincolor);
 }
-
 </style>

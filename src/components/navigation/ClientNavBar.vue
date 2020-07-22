@@ -21,7 +21,7 @@
             <MenuItem label='Cart' to='/client/cart' val='3'>
                 <img src='@/assets/cart.png' alt='cart'>
             </MenuItem>
-            <MenuItem label='My Pets' to='/404' val='2'>
+            <MenuItem label='My Pets' to='/client/pets' val='2'>
                 <img src='@/assets/collar.png' alt='collar'>
             </MenuItem>
             <MenuItem label='Services' to='/404'>

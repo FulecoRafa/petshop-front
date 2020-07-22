@@ -27,7 +27,7 @@
             <MenuItem label='My Pets' to='/404'>
                 <img src='@/assets/tools-and-utensils.png' alt='scissors'>
             </MenuItem>
-            <MenuItem label='Log out' to='/404'>
+            <MenuItem label='Log out' to='/'>
                 <img src='@/assets/sign.png' alt='exit'>
             </MenuItem>            
         </Menu>

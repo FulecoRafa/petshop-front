@@ -7,13 +7,13 @@
         <slot></slot>
 
         <div class='description'>
-            <span>{{ name }}</span>
-            <span>{{ marca }}</span>
+            <p>{{ name }}</p>
+            <p>{{ marca }}</p>
         </div>
 
-        <div class='unit-price'>
-            <span>Unit price</span>
-            <span>${{ parseFloat(price).toFixed(2) }}</span>
+        <div class='unitPrice'>
+            <p>Unit price</p>
+            <p>${{ parseFloat(price).toFixed(2) }}</p>
         </div>
 
         <div class='quantity'>
@@ -102,23 +102,23 @@ input:focus {
     margin-right: 20px;
     width: 115px;
 }
-.description span {
+.description p {
     display: block;
     text-align: left;
     font-size: 14px;
     color: #43484d;
     font-weight: 400;
 }
-.description span:first-child {
+.description p:first-child {
     margin-bottom: 5px;
 }
-.description span:last-child {
+.description p:last-child {
     font-weight: 300;
     margin-top: 8px;
     color: #4e4f50;
 }
 
-.unit-price {
+.unitPrice {
     width: 80px;
     padding-top: 20px;
     text-align: center;
@@ -171,12 +171,12 @@ input:focus {
 
 
 @media (max-width: 359px){
-    .btn-delete img {
+    .remove img {
         margin-left: 30px;
         margin-bottom: 10px; 
     }
 
-    .item{
+    .cartItem{
         margin-bottom: 300px;
     }
 }

@@ -24,7 +24,7 @@
             <MenuItem label='My Pets' to='/404' val='2'>
                 <img src='@/assets/collar.png' alt='collar'>
             </MenuItem>
-            <MenuItem label='My Pets' to='/404'>
+            <MenuItem label='Services' to='/404'>
                 <img src='@/assets/tools-and-utensils.png' alt='scissors'>
             </MenuItem>
             <MenuItem label='Log out' to='/'>

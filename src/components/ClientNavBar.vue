@@ -16,44 +16,24 @@
             </router-link>
             <div class='dropdown'>
                 <ul>
-                    <li>
-                        <router-link to='/client/profile'>
-                            <img class='dropdownIcon' src='@/assets/business-and-finance.png' alt='prof'>
-                            <h4>Profile</h4>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to='/client'>
-                            <img class='dropdownIcon' src='@/assets/shopping.png' alt='shopping'>
-                            <h4>Shop</h4>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to='/'>
-                            <img class='dropdownIcon' src='@/assets/cart.png' alt='cart'>
-                            <h4>Cart</h4>
-                            <div class='pop'>3</div>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to='/'>
-                            <img class='dropdownIcon' src='@/assets/collar.png' alt='collar'>
-                            <h4>My Pets</h4>
-                            <div class='pop'>2</div>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to='/'>
-                            <img class='dropdownIcon' src='@/assets/tools-and-utensils.png' alt='scissors'>
-                            <h4>Services</h4>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to='/'>
-                            <img class='dropdownIcon' src='@/assets/sign.png' alt='exit'>
-                            <h4>Log out</h4>
-                        </router-link>
-                    </li>
+                    <MenuItem label='Profile' to='/client/profile'>
+                        <img src='@/assets/business-and-finance.png' alt='profile'>
+                    </MenuItem>
+                    <MenuItem label='Shop' to='/client'>
+                        <img src='@/assets/shopping.png' alt='shopping'>
+                    </MenuItem>
+                    <MenuItem label='Cart' to='/' val='3'>
+                        <img src='@/assets/cart.png' alt='cart'>
+                    </MenuItem>
+                    <MenuItem label='My Pets' to='/' val='2'>
+                        <img src='@/assets/collar.png' alt='collar'>
+                    </MenuItem>
+                    <MenuItem label='My Pets' to='/'>
+                        <img src='@/assets/tools-and-utensils.png' alt='scissors'>
+                    </MenuItem>
+                    <MenuItem label='Log out' to='/'>
+                        <img src='@/assets/sign.png' alt='exit'>
+                    </MenuItem>
                 </ul>
             </div>
         </div>
@@ -61,8 +41,14 @@
 </template>
 
 <script>
+import MenuItem from './MenuItem'
+console.log(MenuItem)
+
 export default {
-    name: 'ClientNavBar'
+    name: 'ClientNavBar',
+    components:{
+        MenuItem
+    }
 }
 </script>
 

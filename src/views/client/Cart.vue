@@ -19,8 +19,8 @@
                         <h2>Total amount</h2>
                         <p>${{ parseFloat(total).toFixed(2) }}</p>
                     </div>
-                    <router-link id='continueShopping' to='/client/Shop'>Continue shopping</router-link>
-                    <router-link  id='buy' to='/404'>Buy</router-link>
+                    <router-link id='continueShopping' to='/client/'>Continue shopping</router-link>
+                    <router-link  id='buy' to='/client/pay'>Buy</router-link>
                 </div>
             </Card>
         </div>

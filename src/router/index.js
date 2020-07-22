@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Open from '../views/Open.vue'
-import Client from '../views/client/Client.vue'
+import Open from '@/views/Open.vue'
+import Client from '@/views/client/Client.vue'
 
 Vue.use(VueRouter)
 
@@ -14,22 +14,22 @@ const routes = [
             {
                 path: '',
                 name: 'Home',
-                component: () => import(/* webpackChunckName: 'Home' */ '../views/Home.vue')
+                component: () => import(/* webpackChunckName: 'Home' */ '@/views/Home.vue')
             },
             {
                 path: 'login',
                 name: 'Login',
-                component: () => import(/* webpackChunckName: 'Home' */ '../views/Login.vue')
+                component: () => import(/* webpackChunckName: 'Home' */ '@/views/Login.vue')
             },
             {
                 path: 'register',
                 name: 'Register',
-                component: () => import(/* webpackChunckName: 'Home' */ '../views/Register.vue')
+                component: () => import(/* webpackChunckName: 'Home' */ '@/views/Register.vue')
             },
             {
                 path: '404',
                 name: 'NotFound',
-                component: () => import(/* webpackChunckName: 'NotFound' */ '../views/NotFound.vue')
+                component: () => import(/* webpackChunckName: 'NotFound' */ '@/views/NotFound.vue')
             }
         ]
     },
@@ -41,12 +41,12 @@ const routes = [
             {
                 path: '',
                 name: 'Shop',
-                component: () => import('../views/client/Shop.vue')
+                component: () => import('@/views/client/Shop.vue')
             },
             {
                 path: 'profile',
                 name: 'Profile',
-                component: () => import('../views/client/Profile.vue')
+                component: () => import('@/views/client/Profile.vue')
             }
         ]
     },
@@ -56,7 +56,7 @@ const routes = [
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: 'about' */ '../views/About.vue')
+        component: () => import(/* webpackChunkName: 'about' */ '@/views/About.vue')
     },
     // {
     //   path: '*',

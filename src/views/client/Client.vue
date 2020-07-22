@@ -7,7 +7,7 @@
 
 <script>
 // @ is an alias to /src
-import ClientNavBar from '@/components/ClientNavBar.vue';
+import ClientNavBar from '@/components/navigation/ClientNavBar.vue';
 
 export default {
   name: 'Test',

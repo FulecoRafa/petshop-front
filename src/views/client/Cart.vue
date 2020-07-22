@@ -1,4 +1,5 @@
 <!-- TODO I think the array index isn't a good key -->
+<!-- TODO Add links -->
 
 <template>
     <div class='cart'>
@@ -12,6 +13,18 @@
                         <img :src='require(`@/assets/${product.src}`)' :alt='product.alt'>
                     </CartItem>
                     <hr>
+                </div>
+                <div class="total">
+                    <div class="amount">
+                        <h2>Total amount</h2>
+                        <p>${{ parseFloat(total).toFixed(2) }}</p>
+                    </div>
+                    <div id="btn-continue-shopping">
+                        <router-link to="/client/Shop">Continue shopping</router-link>
+                    </div>
+                    <div id="btn-buy">
+                        <router-link to="/404">Buy</router-link>
+                    </div>
                 </div>
             </Card>
         </div>
@@ -35,7 +48,9 @@ export default {
         CartItem,
         SecondHeader
     },
+
     data: () => ({
+        total: NaN,
         items: [
             {
                 quantity: 1,
@@ -51,21 +66,33 @@ export default {
             }
         ]
     }),
+
     methods: {
         remove(index) {
             this.items.splice(index, 1)
+            this.change()
         },
         increment(index) {
             this.items[index].quantity++
+            this.change()
         },
         decrement(index) {
             const item = this.items[index]
             item.quantity--
             item.quantity = item.quantity < 0 ? 0 : item.quantity
+            this.change()
         },
         update(index, value) {
             this.items[index].quantity = value < 0 ? 0 : value
+            this.change()
+        },
+        change() {
+            this.total = this.items.reduce((sum, {quantity, product}) => (sum + product.price * quantity), 0)
         }
+    },
+
+    mounted() {
+        this.change()
     }
 }
 </script>
@@ -76,5 +103,63 @@ export default {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: stretch;
+}
+
+.total {
+  margin-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.total .amount {
+  text-align: center;
+  padding: 20px 20px;
+  margin-bottom: 30px;
+}
+
+.total .amount h2 {
+  color: rgb(37, 0, 248);
+}
+
+#btn-buy a{
+  background: var(--secondarycolor);
+  width: 100%;
+  height: 30px;
+  border: solid 3px var(--secondarycolor);
+  border-radius: 1px;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+#btn-buy a:hover{
+  filter: brightness(1.2);
+}
+
+#btn-continue-shopping a{
+  width: 100%;
+  height: 30px;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 1px;
+  border-color: var(--secondarycolor);
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #43484d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+#btn-continue-shopping a:hover{
+  background: var(--secondarycolor);
+  color: white;
 }
 </style>

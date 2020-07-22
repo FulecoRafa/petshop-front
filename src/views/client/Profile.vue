@@ -1,5 +1,5 @@
 <template>
-<div id='Profile'>
+<div id='profile'>
     <SecondHeader title='Profile'>
         <router-link to='/' class='button'>Edit profile</router-link>
         <router-link to='/' class='button' style='background-color: red;color: white;'>Delete profile</router-link>

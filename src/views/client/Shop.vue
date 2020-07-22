@@ -1,12 +1,14 @@
 <template>
-    <div class='shop'>
+    <div class='profile'>
         <SecondHeader title='Shop'></SecondHeader>
-        <SearchBox></SearchBox>
-        <Card class='products'>
-            <Product v-for='(i, key) in products' :key='key' :name='i.name' :price='i.price' :marca='i.marca' :desc='i.desc'>
-                <img :src='require(`@/assets/${i.src}`)' :alt='i.alt'>
-            </Product>
-        </Card>
+        <div class='content'>
+            <SearchBox></SearchBox>
+            <Card class='products'>
+                <Product v-for='(i, key) in products' :key='key' :name='i.name' :price='i.price' :marca='i.marca' :desc='i.desc'>
+                    <img :src='require(`@/assets/${i.src}`)' :alt='i.alt'>
+                </Product>
+            </Card>
+        </div>
     </div>
 </template>
 
@@ -45,15 +47,6 @@ export default {
 </script>
 
 <style scoped>
-.shop{
-    height: 100%;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .products{
     display: flex;
     align-items: stretch;

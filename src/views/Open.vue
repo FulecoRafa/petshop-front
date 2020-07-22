@@ -7,7 +7,7 @@
 
 <script>
 // @ is an alias to /src
-import OpenNavBar from '@/components/OpenNavBar.vue';
+import OpenNavBar from '@/components/navigation/OpenNavBar.vue';
 
 export default {
     name: 'Home',

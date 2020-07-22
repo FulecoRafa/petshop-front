@@ -25,7 +25,6 @@ const createProduct = (name, price, marca, desc, src, alt) => ({
 export default {
     name: 'Shop',
     data: () => ({
-        a: ['n', 'b', 'c'],
         products: [
             createProduct('Dog food', 20.99, 'Crunchie bites', 'Box food for dogs', 'dog-food.jpg', 'dog-food'),
             createProduct('Cat food', 20.99, 'Whiskas', 'Snacks for cats', 'catfood.jpg', 'cat-food'),

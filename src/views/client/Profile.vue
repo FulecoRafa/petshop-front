@@ -1,8 +1,8 @@
 <template>
 <div id='profile'>
     <SecondHeader title='Profile'>
-        <router-link to='/' class='button'>Edit profile</router-link>
-        <router-link to='/' class='button' style='background-color: red;color: white;'>Delete profile</router-link>
+        <router-link to='/client/edit' class='button'>Edit profile</router-link>
+        <router-link to='/404' class='button' style='background-color: red;color: white;'>Delete profile</router-link>
     </SecondHeader>
     <div class='content'>
         <Card>
@@ -10,22 +10,10 @@
                 <div class='datawrap' id='profilePic'>
                     <img src='@/assets/avatar2.png' alt='profilePic'>
                 </div>
-                <div class='datawrap'>
-                    <h3>Name:</h3>
-                    <p>Fulano</p>
-                </div>
-                <div class='datawrap'>
-                    <h3>Email address:</h3>
-                    <p>fulano@email.com</p>
-                </div>
-                <div class='datawrap'>
-                    <h3>Address:</h3>
-                    <p>Florense Street, 23</p>
-                </div>
-                <div class='datawrap'>
-                    <h3>Phone:</h3>
-                    <p>(01) 9 2345-6789</p>
-                </div>
+                <Data label='Name'>Fulano</Data>
+                <Data label='Email address'>fulano@email.com</Data>
+                <Data label='Address'>Florense Street, 23</Data>
+                <Data label='Phone'>(01) 9 2345-6789</Data>
             </div>
         </Card>
     </div>
@@ -34,12 +22,14 @@
 
 <script>
 import Card from '@/components/Card'
+import Data from '@/components/Data'
 import SecondHeader from '@/components/SecondHeader'
 
 export default {
     name: 'Profile',
     components: {
         Card,
+        Data,
         SecondHeader
     }
 }
@@ -76,7 +66,7 @@ export default {
     margin-left: 0px;
 }
 
-#profileContent route-link{
+#profileContent .button{
     background: var(--secondarycolor);
     width: 100%;
     border: none;
@@ -86,15 +76,8 @@ export default {
     font-weight: 500;
     cursor: pointer;
 }
-#profileContent route-link:hover{
+#profileContent .button:hover{
     filter: brightness(1.2);
-}
-
-.datawrap{
-    display: flex;
-    align-items: center;
-    justify-content: unset;
-    width: 100%;
 }
 
 .button {

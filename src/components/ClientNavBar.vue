@@ -106,7 +106,7 @@ export default {
     padding-left: 25px;
 } 
 
-.dorpdownWrapper:hover .dropdown{
+.dropdownWrapper:hover .dropdown{
     display: block;
 }
 

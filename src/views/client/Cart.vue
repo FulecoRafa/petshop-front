@@ -19,12 +19,8 @@
                         <h2>Total amount</h2>
                         <p>${{ parseFloat(total).toFixed(2) }}</p>
                     </div>
-                    <div id="btn-continue-shopping">
-                        <router-link to="/client/Shop">Continue shopping</router-link>
-                    </div>
-                    <div id="btn-buy">
-                        <router-link to="/404">Buy</router-link>
-                    </div>
+                    <router-link id="continueShopping" to="/client/Shop">Continue shopping</router-link>
+                    <router-link  id="buy" to="/404">Buy</router-link>
                 </div>
             </Card>
         </div>
@@ -121,7 +117,7 @@ export default {
   color: rgb(37, 0, 248);
 }
 
-#btn-buy a{
+#buy{
   background: var(--secondarycolor);
   width: 100%;
   height: 30px;
@@ -137,11 +133,11 @@ export default {
   margin-bottom: 10px;
 }
 
-#btn-buy a:hover{
+#buy:hover{
   filter: brightness(1.2);
 }
 
-#btn-continue-shopping a{
+#continueShopping {
   width: 100%;
   height: 30px;
   border-style: solid;
@@ -158,7 +154,7 @@ export default {
   margin-bottom: 10px;
 }
 
-#btn-continue-shopping a:hover{
+#continueShopping:hover{
   background: var(--secondarycolor);
   color: white;
 }

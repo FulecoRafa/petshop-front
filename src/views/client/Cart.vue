@@ -4,7 +4,7 @@
 <template>
     <div class='cart'>
         <SecondHeader title='Cart'></SecondHeader>
-        <div class="content">
+        <div class='content'>
             <Card class='cartList'>
                 <div v-for='({quantity, product} , key) in items' :key='key'>
                     <CartItem :value='quantity' :name='product.name' :marca='product.marca' :price='product.price'
@@ -14,13 +14,13 @@
                     </CartItem>
                     <hr>
                 </div>
-                <div class="total">
-                    <div class="amount">
+                <div class='total'>
+                    <div class='amount'>
                         <h2>Total amount</h2>
                         <p>${{ parseFloat(total).toFixed(2) }}</p>
                     </div>
-                    <router-link id="continueShopping" to="/client/Shop">Continue shopping</router-link>
-                    <router-link  id="buy" to="/404">Buy</router-link>
+                    <router-link id='continueShopping' to='/client/Shop'>Continue shopping</router-link>
+                    <router-link  id='buy' to='/404'>Buy</router-link>
                 </div>
             </Card>
         </div>

@@ -2,8 +2,8 @@
     <Card class='searchBox'>
         <h3>Search</h3>
         <form>
-            <input type="text" name="searchPrompt" placeholder="Ex.: Dog food" />
-            <input type="submit" value="🔎" />
+            <input type='text' name='searchPrompt' placeholder='Ex.: Dog food' />
+            <input type='submit' value='🔎' />
         </form>
     </Card>
 </template>

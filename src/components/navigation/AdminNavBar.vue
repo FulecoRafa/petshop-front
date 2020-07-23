@@ -70,4 +70,11 @@ export default {
     display: flex;
     align-items: center;
 }
+
+#shield{
+    position: absolute;
+    left: 100%;
+    transform: translate(-125%, 50%);
+    height: 25px !important;
+}
 </style>

@@ -16,6 +16,7 @@ import Calendar from '@/components/Calendar'
 import SecondHeader from '@/components/SecondHeader'
 
 export default {
+    name: 'Services',
     components: {
         Card,
         Calendar,

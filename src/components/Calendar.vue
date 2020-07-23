@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    name: calendar,
+    name: 'Calendar',
     data: ()=> ({
         weekdays: ['Sunday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Saturday'],
         hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],

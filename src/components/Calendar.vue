@@ -10,7 +10,7 @@
                         </th>
                     </tr>
                     <tr v-for='i in 12' :key='i'>
-                        <td v-for='i in 10' :key='i'><router-link to='404'>{{ hour(i) }}</router-link></td>
+                        <td v-for='j in 10' :key='j'><router-link to='404'>{{ hour(i + 8) }}</router-link></td>
                     </tr>
                 </tbody>
             </table>
@@ -36,8 +36,7 @@ export default {
         },
 
         hour(h) {
-            h = 8 + h
-            if(h > 12){
+            if(h > 12) {
                 return `${h - 12}:00 pm`
             } else if( h == 12) {
                 return `${h}:00 pm`

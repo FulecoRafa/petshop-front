@@ -1,5 +1,5 @@
 <template>
-    <div class='Edit'>
+    <div class='profileEdit'>
         <SecondHeader title='Edit Profile'></SecondHeader>
         <div class='content'>
             <Card>
@@ -15,7 +15,7 @@ import ProfileForm from '@/components/ProfileForm'
 import SecondHeader from '@/components/SecondHeader'
 
 export default {
-    name: 'Edit',
+    name: 'ProfileEdit',
     components: {
         Card,
         ProfileForm,

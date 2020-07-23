@@ -58,14 +58,6 @@ export default {
     padding: 5px;
 }
 
-/* Reducing the space between the label and the data */
-#profileContent .datawrap>h3{
-    margin-right: 0px;
-}
-#profileContent .datawrap>p{
-    margin-left: 0px;
-}
-
 #profileContent .button{
     background: var(--secondarycolor);
     width: 100%;

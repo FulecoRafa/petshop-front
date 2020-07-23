@@ -53,7 +53,7 @@ const routes = [
             {
                 path: 'edit',
                 name: 'EditProfile',
-                component: () => import('@/views/client/Edit')
+                component: () => import('@/views/ProfileEdit')
             },
             {
                 path: 'cart',
@@ -87,7 +87,16 @@ const routes = [
         name: 'Admin',
         component: Admin,
         children: [
-
+            {
+                path: '',
+                name: 'Profile',
+                component: () => import('@/views/admin/Profile')
+            },
+            {
+                path: 'edit',
+                name: 'EditProfile',
+                component: () => import('@/views/ProfileEdit')
+            },
         ]
     },
     {

@@ -88,7 +88,7 @@ const routes = [
         component: Admin,
         children: [
             {
-                path: '',
+                path: 'profile',
                 name: 'Profile',
                 component: () => import('@/views/admin/Profile')
             },

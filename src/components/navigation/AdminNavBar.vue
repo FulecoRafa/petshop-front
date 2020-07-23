@@ -13,7 +13,7 @@
                 <img src='@/assets/shield.png' alt='shield' id='shield'>
             </template>
             
-            <MenuItem label='Profile' to='/admin'>
+            <MenuItem label='Profile' to='/admin/profile'>
                 <img src='@/assets/business-and-finance.png' alt='profile'>
             </MenuItem>
             <MenuItem label='Shop' to='/admin'>
@@ -22,10 +22,10 @@
             <MenuItem label='Users' to='/admin'>
                 <img src='@/assets/gear.png' alt='gear'>
             </MenuItem>
-            <MenuItem label='Services' to='/admin' val='3'>
+            <MenuItem label='Services' to='/admin'>
                 <img src='@/assets/tools-and-utensils.png' alt='scissors'>
             </MenuItem>
-            <MenuItem label='Finance' to='/admin' val='2'>
+            <MenuItem label='Finance' to='/admin'>
                 <img src='@/assets/collar.png' alt='collar'>
             </MenuItem>
             <MenuItem label='Finance' to='/admin'>

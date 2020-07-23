@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Open from '@/views/Open'
 import Client from '@/views/client/Client'
+import Admin from '@/views/admin/Admin'
 
 Vue.use(VueRouter)
 
@@ -78,6 +80,14 @@ const routes = [
                 name: 'Services',
                 component: () => import('@/views/client/Services')
             }
+        ]
+    },
+    {
+        path: '/admin',
+        name: 'Admin',
+        component: Admin,
+        children: [
+
         ]
     },
     {

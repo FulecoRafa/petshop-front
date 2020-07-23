@@ -43,7 +43,7 @@ const images = {
     Snake: {src: 'snake.png', alt:'pic'},
     Fish: {src: 'fish.png', alt:'pic'},
     Rabbit: {src: 'rabbit.png', alt:'pic'},
-    Hamster: {src: 'ramster.png', alt:'pic'},
+    Hamster: {src: 'hamster.png', alt:'pic'},
 }
 export default {
     name: 'PetForm',

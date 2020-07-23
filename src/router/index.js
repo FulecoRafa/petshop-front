@@ -67,6 +67,16 @@ const routes = [
                 path: 'pets',
                 name: 'Pets',
                 component: () => import('@/views/client/Pets')
+            },
+            {
+                path: 'petedit',
+                name: 'PetEdit',
+                component: () => import('@/views/client/PetEdit')
+            },
+            {
+                path: 'services',
+                name: 'Services',
+                component: () => import('@/views/client/Services')
             }
         ]
     },

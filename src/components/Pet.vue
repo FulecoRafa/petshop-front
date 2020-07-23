@@ -6,7 +6,7 @@
                 <img v-else src='@/assets/biscuit.png' >
             </Data>
             <Data class='data' label='Name'>{{ name }}</Data>
-            <Data class='data' label='Type'>{{ capitalize(type) }}</Data>
+            <Data class='data' label='Type'>{{ type }}</Data>
             <Data class='data' label='Race'>{{ race }}</Data>
             <Data class='data' label='Age'>{{ age }}</Data>
             <router-link to='/client/petedit'>Edit</router-link>
@@ -19,10 +19,13 @@ import Data from '@/components/Data'
 import Card from '@/components/Card'
 
 const images = {
-    dog: {src: 'doggy.png', alt:'pic'},
-    cat: {src: 'cat.png', alt:'pic'},
-    bird: {src: 'bird.png', alt:'pic'},
-    fish: {src: 'fish.png', alt:'pic'}
+    Dog: {src: 'doggy.png', alt:'pic'},
+    Cat: {src: 'cat.png', alt:'pic'},
+    Bird: {src: 'bird.png', alt:'pic'},
+    Snake: {src: 'snake.png', alt:'pic'},
+    Fish: {src: 'fish.png', alt:'pic'},
+    Rabbit: {src: 'rabbit.png', alt:'pic'},
+    Hamster: {src: 'hamster.png', alt:'pic'},
 }
 
 export default {
@@ -35,9 +38,6 @@ export default {
     data: () => ({
         images
     }),
-    methods: {
-        capitalize: str => str.charAt(0).toUpperCase() + str.slice(1)
-    }
 }
 </script>
 

@@ -4,13 +4,13 @@
             <table>
                 <tbody>
                     <tr>
-                        <th v-for='i in 10' :key='i'>
-                            <p>{{ week(now.getDay() + i) }}</p>
+                        <th v-for='i in numDays' :key='i'>
+                            <p>{{ calcWeekday(now.getDay() + i) }}</p>
                             <p>{{ addDays(now, i).getDate() }} </p>
                         </th>
                     </tr>
-                    <tr v-for='i in 12' :key='i'>
-                        <td v-for='j in 10' :key='j'><router-link to='404'>{{ hour(i + 8) }}</router-link></td>
+                    <tr v-for='i in hours' :key='i'>
+                        <td v-for='j in numDays' :key='j'><router-link to='404'>{{ calcHour(i + 8) }}</router-link></td>
                     </tr>
                 </tbody>
             </table>
@@ -22,10 +22,12 @@
 export default {
     data: ()=> ({
         weekdays: ['Sunday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Saturday'],
+        hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        numDays: 10,
         now: new Date()
     }),
     methods: {
-        week(w){
+        calcWeekday(w){
             return this.weekdays[w % 7]
         },
 
@@ -35,7 +37,7 @@ export default {
             return copy
         },
 
-        hour(h) {
+        calcHour(h) {
             if(h > 12) {
                 return `${h - 12}:00 pm`
             } else if( h == 12) {

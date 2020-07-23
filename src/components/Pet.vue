@@ -2,7 +2,7 @@
     <Card lefty='true'>
         <div class='petData'>
             <Data class='profile-pic'>
-                <img v-if='images[type]' :src='require(`@/assets/${images[type].src}`)' alt="profilePic">
+                <img v-if='images[type]' :src='require(`@/assets/${images[type]}`)' alt='pet'>
                 <img v-else src='@/assets/biscuit.png' >
             </Data>
             <Data class='data' label='Name'>{{ name }}</Data>
@@ -19,13 +19,13 @@ import Data from '@/components/Data'
 import Card from '@/components/Card'
 
 const images = {
-    Dog: {src: 'doggy.png', alt:'pic'},
-    Cat: {src: 'cat.png', alt:'pic'},
-    Bird: {src: 'bird.png', alt:'pic'},
-    Snake: {src: 'snake.png', alt:'pic'},
-    Fish: {src: 'fish.png', alt:'pic'},
-    Rabbit: {src: 'rabbit.png', alt:'pic'},
-    Hamster: {src: 'hamster.png', alt:'pic'},
+    Dog:     'doggy.png',
+    Cat:     'cat.png',
+    Bird:    'bird.png',
+    Snake:   'snake.png',
+    Fish:    'fish.png',
+    Rabbit:  'rabbit.png',
+    Hamster: 'hamster.png',
 }
 
 export default {

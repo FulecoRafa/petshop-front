@@ -1,6 +1,3 @@
-<!-- TODO I think the array index isn't a good key -->
-<!-- TODO Add links -->
-
 <template>
     <div class='cart'>
         <SecondHeader title='Cart'></SecondHeader>

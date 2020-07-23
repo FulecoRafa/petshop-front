@@ -1,5 +1,3 @@
-<!-- TODO colocar links -->
-
 <template>
     <header id='navBar'>
         <router-link to='/' id='logo'>

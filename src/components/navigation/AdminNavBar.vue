@@ -20,7 +20,7 @@
             <MenuItem label='Users' to='/admin/users'>
                 <img src='@/assets/gear.png' alt='gear'>
             </MenuItem>
-            <MenuItem label='Services' to='/admin'>
+            <MenuItem label='Services' to='/admin/services'>
                 <img src='@/assets/tools-and-utensils.png' alt='scissors'>
             </MenuItem>
             <MenuItem label='Finance' to='/admin/'>

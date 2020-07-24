@@ -41,14 +41,14 @@ const routes = [
         component: Client,
         children: [
             {
-                path: '',
-                name: 'Shop',
-                component: () => import('@/views/client/Shop')
-            },
-            {
                 path: 'profile',
                 name: 'Profile',
                 component: () => import('@/views/client/Profile')
+            },
+            {
+                path: '',
+                name: 'Shop',
+                component: () => import('@/views/client/Shop')
             },
             {
                 path: 'edit',
@@ -88,11 +88,6 @@ const routes = [
         component: Admin,
         children: [
             {
-                path: '',
-                name: 'Finance',
-                component: () => import('@/views/admin/Finance')
-            },
-            {
                 path: 'profile',
                 name: 'Profile',
                 component: () => import('@/views/admin/Profile')
@@ -121,6 +116,16 @@ const routes = [
                 path: 'useredit',
                 name: 'Users',
                 component: () => import('@/views/ProfileEdit')
+            },
+            {
+                path: 'services',
+                name: 'Services',
+                component: () => import('@/views/admin/Services')
+            },
+            {
+                path: '',
+                name: 'Finance',
+                component: () => import('@/views/admin/Finance')
             },
             {
                 path: 'schedule',

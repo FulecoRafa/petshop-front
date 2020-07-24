@@ -49,7 +49,7 @@ export default {
 .products{
     display: flex;
     align-items: stretch;
-    justify-content: flex-start;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 </style>

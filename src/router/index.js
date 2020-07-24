@@ -42,42 +42,42 @@ const routes = [
         children: [
             {
                 path: 'profile',
-                name: 'Profile',
+                name: 'ClientProfile',
                 component: () => import('@/views/client/Profile')
             },
             {
                 path: '',
-                name: 'Shop',
+                name: 'ClientShop',
                 component: () => import('@/views/client/Shop')
             },
             {
                 path: 'edit',
-                name: 'EditProfile',
+                name: 'ClientEditProfile',
                 component: () => import('@/views/ProfileEdit')
             },
             {
                 path: 'cart',
-                name: 'Cart',
+                name: 'ClientCart',
                 component: () => import('@/views/client/Cart')
             },
             {
                 path: 'pay',
-                name: 'Pay',
+                name: 'ClientPay',
                 component: () => import('@/views/client/Pay')
             },
             {
                 path: 'pets',
-                name: 'Pets',
+                name: 'ClientPets',
                 component: () => import('@/views/client/Pets')
             },
             {
                 path: 'petedit',
-                name: 'PetEdit',
+                name: 'ClientPetEdit',
                 component: () => import('@/views/client/PetEdit')
             },
             {
                 path: 'services',
-                name: 'Services',
+                name: 'ClientServices',
                 component: () => import('@/views/client/Services')
             }
         ]
@@ -89,47 +89,52 @@ const routes = [
         children: [
             {
                 path: 'profile',
-                name: 'Profile',
+                name: 'AdminProfile',
                 component: () => import('@/views/admin/Profile')
             },
             {
                 path: 'edit',
-                name: 'EditProfile',
+                name: 'AdminEditProfile',
                 component: () => import('@/views/ProfileEdit')
             },
             {
                 path: 'shop',
-                name: 'Shop',
+                name: 'AdminShop',
                 component: () => import('@/views/admin/Shop')
             },
             {
                 path: 'productedit',
-                name: 'Shop',
+                name: 'AdminShop',
                 component: () => import('@/views/admin/ProductEdit')
             },
             {
                 path: 'users',
-                name: 'Users',
+                name: 'AdminUsers',
                 component: () => import('@/views/admin/Users')
             },
             {
                 path: 'useredit',
-                name: 'Users',
+                name: 'AdminUsers',
                 component: () => import('@/views/ProfileEdit')
             },
             {
                 path: 'services',
-                name: 'Services',
+                name: 'AdminServices',
                 component: () => import('@/views/admin/Services')
             },
             {
+                path: 'serviceedit',
+                name: 'AdminServices',
+                component: () => import('@/views/admin/ServiceEdit')
+            },
+            {
                 path: '',
-                name: 'Finance',
+                name: 'AdminFinance',
                 component: () => import('@/views/admin/Finance')
             },
             {
                 path: 'schedule',
-                name: 'Schedule',
+                name: 'AdminSchedule',
                 component: () => import('@/views/admin/Schedule')
             }
         ]

@@ -1,5 +1,5 @@
 <template>
-    <div class='products'>
+    <div class='shop'>
         <SecondHeader title='Shop'></SecondHeader>
         <div class='content'>
             <SearchBox></SearchBox>
@@ -45,11 +45,6 @@ export default {
 }
 </script>
 
-<style>
-.products{
-    display: flex;
-    align-items: stretch;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
+<style scoped>
+
 </style>

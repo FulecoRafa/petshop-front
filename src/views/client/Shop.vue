@@ -24,6 +24,12 @@ const createProduct = (name, price, marca, desc, src) => ({
 
 export default {
     name: 'Shop',
+    components: {
+        Card,
+        Product,
+        SearchBox,
+        SecondHeader
+    },
     data: () => ({
         products: [
             createProduct('Dog food', 20.99, 'Crunchie bites', 'Box food for dogs', 'dog-food.jpg'),
@@ -35,13 +41,7 @@ export default {
             createProduct('Dog Toy', 1.99, 'Sheffield', 'Munching toy shapped like a bone', 'dogtoy.jpg'),
             createProduct('Bird cage', 9.99, 'Birds of paradise', 'Small cage for small birds', 'birdcage.jpg')
         ]
-    }),
-    components: {
-        Card,
-        Product,
-        SearchBox,
-        SecondHeader
-    }
+    })
 }
 </script>
 

@@ -11,7 +11,7 @@
 
 <script>
 import Card from '@/components/Card'
-import PetForm from '@/components/PetForm'
+import PetForm from '@/components/forms/PetForm'
 import SecondHeader from '@/components/SecondHeader'
 
 export default {

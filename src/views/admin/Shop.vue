@@ -15,7 +15,7 @@
 <script>
 import Card from '@/components/Card'
 import SearchBox from '@/components/SearchBox'
-import ProductEdit from '@/components/ProductEdit'
+import ProductEdit from '@/components/rcard/ProductEdit'
 import SecondHeader from '@/components/SecondHeader'
 
 const createProduct = (name, price, marca, desc, src) => ({

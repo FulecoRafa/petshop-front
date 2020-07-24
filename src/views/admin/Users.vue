@@ -15,7 +15,7 @@
 
 <script>
 import Card from '@/components/Card'
-import User from '@/components/User'
+import User from '@/components/rcard/User'
 import SearchBox from '@/components/SearchBox'
 import SecondHeader from '@/components/SecondHeader'
 

@@ -15,7 +15,7 @@
 
 <script>
 import Card from '@/components/Card'
-import Product from '@/components/Product'
+import Product from '@/components/rcard/Product'
 import SearchBox from '@/components/SearchBox'
 import SecondHeader from '@/components/SecondHeader'
 

@@ -3,8 +3,9 @@
         <SecondHeader title='Shop'></SecondHeader>
         <div class='content'>
             <SearchBox></SearchBox>
-            <Card class='products'>
-                <Product v-for='(i, key) in products' :key='key' :name='i.name' :price='i.price' :marca='i.marca' :desc='i.desc'>
+            <Card flex='true'>
+                <Product v-for='(i, key) in products' :key='key'
+                  :name='i.name' :price='i.price' :marca='i.marca' :desc='i.desc'>
                     <img :src='require(`@/assets/${i.src}`)' alt='product'>
                 </Product>
             </Card>
@@ -46,10 +47,4 @@ export default {
 </script>
 
 <style scoped>
-.products{
-    display: flex;
-    align-items: stretch;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
 </style>

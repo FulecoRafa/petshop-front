@@ -3,7 +3,7 @@
         <SecondHeader title='Shop'></SecondHeader>
         <div class='content'>
             <SearchBox></SearchBox>
-            <Card class='products'>
+            <Card flex='true'>
                 <ProductEdit v-for='(i, key) in products' :key='key' :name='i.name' :price='i.price' :marca='i.marca' :desc='i.desc'>
                     <img :src='require(`@/assets/${i.src}`)' alt='product'>
                 </ProductEdit>

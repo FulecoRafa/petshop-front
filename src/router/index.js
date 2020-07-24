@@ -107,6 +107,16 @@ const routes = [
                 name: 'Shop',
                 component: () => import('@/views/admin/Shop')
             },
+            {
+                path: 'users',
+                name: 'Users',
+                component: () => import('@/views/admin/Users')
+            },
+            {
+                path: 'schedule',
+                name: 'Schedule',
+                component: () => import('@/views/admin/Schedule')
+            }
         ]
     },
     {

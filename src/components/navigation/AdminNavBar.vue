@@ -17,7 +17,7 @@
             <MenuItem label='Shop' to='/admin/shop'>
                 <img src='@/assets/shopping.png' alt='shopping'>
             </MenuItem>
-            <MenuItem label='Users' to='/admin'>
+            <MenuItem label='Users' to='/admin/users'>
                 <img src='@/assets/gear.png' alt='gear'>
             </MenuItem>
             <MenuItem label='Services' to='/admin'>
@@ -26,7 +26,7 @@
             <MenuItem label='Finance' to='/admin/'>
                 <img src='@/assets/bars.png' alt='bars'>
             </MenuItem>
-            <MenuItem label='Schedule' to='/admin'>
+            <MenuItem label='Schedule' to='/admin/schedule'>
                 <img src='@/assets/time.png' alt='calendar'>
             </MenuItem>
             <MenuItem label='Log out' to='/'>

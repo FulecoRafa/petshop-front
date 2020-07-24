@@ -1,5 +1,5 @@
 <template>
-     <div class='card' :class='{lefty: lefty}'>
+     <div class='card' :class='{lefty: lefty, flex: flex}'>
         <slot></slot>
     </div>
 </template>
@@ -8,7 +8,8 @@
 export default {
     name: 'Card',
     props: [
-        'lefty'
+        'lefty',
+        'flex'
     ]
 }
 </script>
@@ -28,6 +29,12 @@ export default {
 .lefty{
     margin-left: 50px;
 }
+.flex{
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
 
 .card h1{
     margin: 10px 0px 15px 0px;
@@ -46,6 +53,7 @@ a:visited{
     color: inherit;
     text-decoration: none;
 }
+
 
 .link{
     text-decoration: underline;

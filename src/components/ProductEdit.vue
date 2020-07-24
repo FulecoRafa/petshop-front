@@ -7,7 +7,7 @@
         <h4>${{ parseFloat(price).toFixed(2) }}</h4>
         <h5>{{ marca }}</h5>
         <p>{{ desc }}</p>
-        <router-link to='/'>Edit</router-link>
+        <router-link to='/admin/productedit'>Edit</router-link>
     </div>
 </template>
 

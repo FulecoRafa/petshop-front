@@ -5,7 +5,7 @@
                 <img src='@/assets/kennel.png' alt='kennel'>
         </router-link>
         
-        <Menu username='Fulano' to='/client/profile'>
+        <Menu :username='name' to='/client/profile'>
             <template v-slot:userImage>
                 <img src='@/assets/profile.png' alt='profilePic' />
             </template>
@@ -41,7 +41,8 @@ export default {
     components:{
         Menu,
         MenuItem
-    }
+    },
+    props:['name']
 }
 </script>
 

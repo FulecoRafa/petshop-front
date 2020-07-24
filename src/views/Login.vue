@@ -2,14 +2,14 @@
   <div class='content'>
       <Card>
           <h1>Login</h1>
-            <form id='login-form'>
+            <form id='login-form' @submit="login">
                 <div class='inputwrap'>
                     <i class='fas fa-user-alt'></i>
-                    <input type='text' name='email' placeholder='example@example.com' autoFocus />
+                    <input type='text' name='email' placeholder='example@example.com' autoFocus v-model="user.email"/>
                 </div>
                 <div class='inputwrap'>
                     <i class='fas fa-lock'></i>
-                    <input type='password' name='passwd' placeholder='password' />
+                    <input type='password' name='passwd' placeholder='password' v-model="user.passwd"/>
                 </div>
                 <input type='submit' value='Log in' />
             </form>
@@ -25,6 +25,28 @@ export default {
     name: 'Login',
     components:{
         Card
+    },
+    data: ()=>({
+      user:{
+        email: '',
+        passwd: ''
+      }
+    }),
+    methods:{
+      login(event){
+        event.preventDefault();
+        this.$http.post('http://localhost:9000/client/login', this.user)
+          .then(res=>{
+            console.log(res);
+            localStorage.setItem('auth', res.data.auth);
+            localStorage.setItem('refresh', res.data.refresh);
+            if(res.data.permission == 'admin') this.$router.push('/admin');
+            else this.$router.push('/client');
+          })
+          .catch(err=>{
+            console.log(err);
+          });
+      }
     }
 }
 </script>

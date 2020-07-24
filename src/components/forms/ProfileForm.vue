@@ -1,28 +1,28 @@
 <template>
-    <form id='profileForm'>
+    <form id='profileForm' @submit="submitFunc">
         <div class='inputwrap'>
             <h3>Name:</h3>
-            <input type='text' name='name' placeholder='Full name' required autoFocus />
+            <input type='text' name='name' placeholder='Full name' required autoFocus v-model="user.name" />
         </div>
         <div class='inputwrap'>
             <h3>Email address:</h3>
-            <input type='email' name='email' placeholder='example@example.com' required />
+            <input type='email' name='email' placeholder='example@example.com' required v-model="user.email" />
         </div>
         <div class='inputwrap'>
             <h3>Address:</h3>
-            <input type='text' name='address' placeholder='Florense Street, 23' required />
+            <input type='text' name='address' placeholder='Florense Street, 23' required v-model="user.address" />
         </div>
         <div class='inputwrap'>
             <h3>Phone:</h3>
-            <input type='text' name='phone' pattern='[0-9\(\)\- ]{16}' placeholder='(DD) 9 XXXX-XXXX' required />
+            <input type='text' name='phone' pattern='[0-9\(\)\- ]{16}' placeholder='(DD) 9 XXXX-XXXX' required v-model="user.phone" />
         </div>
         <div class='inputwrap'>
             <h3>Password:</h3>
-            <input type='password' name='passwd' min='6' required />
+            <input type='password' name='passwd' min='6' required v-model="user.passwd" />
         </div>
         <div class='inputwrap'>
             <h3>Confirm Password:</h3>
-            <input type='password' name='passwd2' :class='{passMismatch: mismatch}' required />
+            <input type='password' name='passwd2' :class="{passMismatch: !ok}" required v-model="passwd2" />
         </div>
         <input type='submit' :value="submit || 'Submit'">
     </form>
@@ -31,7 +31,51 @@
 <script>
 export default {
     name: 'ProfileForm',
-    props: ['submit', 'mismatch']
+    props: ['submit'],
+    data:()=>({
+      user:{
+        name:'',
+        email:'',
+        address:'',
+        phone:'',
+        passwd:''
+      },
+      passwd2:'',
+      ok: false
+    }),
+    methods:{
+      submitFunc(event){
+        event.preventDefault();
+        if(!this.ok) return alert("Passwords must match");
+        // Make request
+        if(this.submit == 'Register'){
+          let thisUser = this.user;
+          thisUser.image = "@/assets/profile.png"
+          thisUser.permission = 'user';
+          this.$http.post("http://localhost:9000/client", thisUser)
+            .then(res=>{
+              console.log(res);
+              this.$router.push('/login');
+            })
+            .catch(err=>{
+              alert(err.response.data);
+            });
+        }else if(this.submit == 'Edit'){
+          console.log('Edit');
+        }
+      }
+    },
+    watch:{
+      passwd2: function(){
+        this.ok = (this.user.passwd == this.passwd2);
+      },
+      user:{
+        phone: function(){
+          this.user.phone = this.user.phone.replace(/(\D|\s)/g, '');
+          this.user.phone = this.user.phone.replace(/(\d{1,2})?(\d)?(\d{1,4})?(\d{1,4})?/mi, '($1) $2 $3-$4');
+        }
+      }
+    }
 }
 </script>
 
@@ -94,9 +138,5 @@ export default {
 /* Style need the !important to appear */
 .passMismatch{
     border: 3px solid red !important; 
-}
-.passMismatch:after{
-    font-size: 10px !important;
-    content: 'Passwords must match' !important;
 }
 </style>

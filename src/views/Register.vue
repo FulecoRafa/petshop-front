@@ -2,7 +2,7 @@
   <div class='content'>
       <Card>
           <h1>Register</h1>
-            <ProfileForm submit='Register' mismatch=''></ProfileForm>
+            <ProfileForm submit='Register'></ProfileForm>
             <router-link to='/login'>Login</router-link>
       </Card>
   </div>

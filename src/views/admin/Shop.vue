@@ -1,13 +1,12 @@
 <template>
-    <div class='profile'>
+    <div class='shop'>
         <SecondHeader title='Shop'></SecondHeader>
         <div class='content'>
             <SearchBox></SearchBox>
             <Card flex='true'>
-                <Product v-for='(i, key) in products' :key='key'
-                  :name='i.name' :price='i.price' :marca='i.marca' :desc='i.desc'>
+                <ProductEdit v-for='(i, key) in products' :key='key' :name='i.name' :price='i.price' :marca='i.marca' :desc='i.desc'>
                     <img :src='require(`@/assets/${i.src}`)' alt='product'>
-                </Product>
+                </ProductEdit>
             </Card>
         </div>
     </div>
@@ -15,8 +14,8 @@
 
 <script>
 import Card from '@/components/Card'
-import Product from '@/components/rcard/Product'
 import SearchBox from '@/components/SearchBox'
+import ProductEdit from '@/components/rcard/ProductEdit'
 import SecondHeader from '@/components/SecondHeader'
 
 const createProduct = (name, price, marca, desc, src) => ({
@@ -27,8 +26,8 @@ export default {
     name: 'Shop',
     components: {
         Card,
-        Product,
         SearchBox,
+        ProductEdit,
         SecondHeader
     },
     data: () => ({
@@ -42,9 +41,6 @@ export default {
             createProduct('Dog Toy', 1.99, 'Sheffield', 'Munching toy shapped like a bone', 'dogtoy.jpg'),
             createProduct('Bird cage', 9.99, 'Birds of paradise', 'Small cage for small birds', 'birdcage.jpg')
         ]
-    })
+    }),
 }
 </script>
-
-<style scoped>
-</style>

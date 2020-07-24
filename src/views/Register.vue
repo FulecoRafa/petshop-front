@@ -10,7 +10,7 @@
 
 <script>
 import Card from '../components/Card'
-import ProfileForm from '../components/ProfileForm'
+import ProfileForm from '../components/forms/ProfileForm'
 
 export default {
     name: 'Content',

@@ -3,7 +3,7 @@
         <router-link :to='to'>
             <slot></slot>
             <h4>{{ label }}</h4>
-            <div v-if='val' class='pop'>{{ val }}</div>
+            <div v-if='val && val > 0' class='pop'>{{ val }}</div>
         </router-link>
     </li>
 </template>

@@ -1,18 +1,18 @@
 <template>
     <div class='home'>
-        <ClientNavBar></ClientNavBar>
+        <AdminNavBar></AdminNavBar>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import ClientNavBar from '@/components/navigation/ClientNavBar';
+import AdminNavBar from '@/components/navigation/AdminNavBar'
 
 export default {
-  name: 'Client',
+  name: 'Admin',
     components: {
-        ClientNavBar
+        AdminNavBar
     }
 }
 </script>

@@ -19,4 +19,13 @@ export default {
     justify-content: unset;
     width: 100%;
 }
+
+/* Reducing the space between the label and the data */
+.datawrap>h3{
+    margin-right: 0px;
+}
+.datawrap>p{
+    margin-left: 0px;
+}
+
 </style>

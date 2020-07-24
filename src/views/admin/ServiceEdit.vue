@@ -1,9 +1,9 @@
 <template>
-    <div class='Edit'>
-        <SecondHeader title='Edit Profile'></SecondHeader>
+    <div class='serviceEdit'>
+        <SecondHeader title='Edit Service'></SecondHeader>
         <div class='content'>
             <Card>
-                <ProfileForm submit='Edit' mismatch='true'></ProfileForm>
+                <ServiceForm></ServiceForm>
             </Card>
         </div>
     </div>
@@ -11,14 +11,14 @@
 
 <script>
 import Card from '@/components/Card'
-import ProfileForm from '@/components/ProfileForm'
+import ServiceForm from '@/components/forms/ServiceForm'
 import SecondHeader from '@/components/SecondHeader'
 
 export default {
-    name: 'Edit',
+    name: 'ServiceEdit',
     components: {
         Card,
-        ProfileForm,
+        ServiceForm,
         SecondHeader
     }
 }

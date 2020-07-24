@@ -5,25 +5,29 @@
                 <img src='@/assets/kennel.png' alt='kennel'>
         </router-link>
         
-        <Menu username='Fulano' to='/client/profile'>
+        <Menu username='Clayton' to='/admin/profile'>
             <template v-slot:userImage>
-                <img src='@/assets/profile.png' alt='profilePic' />
+                <img src='@/assets/profile.png' alt='profilePic'>
+                <img src='@/assets/shield.png' alt='shield' id='shield'>
             </template>
             
-            <MenuItem label='Profile' to='/client/profile'>
+            <MenuItem label='Profile' to='/admin/profile'>
                 <img src='@/assets/business-and-finance.png' alt='profile'>
             </MenuItem>
-            <MenuItem label='Shop' to='/client'>
+            <MenuItem label='Shop' to='/admin/shop'>
                 <img src='@/assets/shopping.png' alt='shopping'>
             </MenuItem>
-            <MenuItem label='Cart' to='/client/cart' val='3'>
-                <img src='@/assets/cart.png' alt='cart'>
+            <MenuItem label='Users' to='/admin/users'>
+                <img src='@/assets/gear.png' alt='gear'>
             </MenuItem>
-            <MenuItem label='My Pets' to='/client/pets' val='2'>
-                <img src='@/assets/collar.png' alt='collar'>
-            </MenuItem>
-            <MenuItem label='Services' to='/client/services'>
+            <MenuItem label='Services' to='/admin/services'>
                 <img src='@/assets/tools-and-utensils.png' alt='scissors'>
+            </MenuItem>
+            <MenuItem label='Finance' to='/admin/'>
+                <img src='@/assets/bars.png' alt='bars'>
+            </MenuItem>
+            <MenuItem label='Schedule' to='/admin/schedule'>
+                <img src='@/assets/time.png' alt='calendar'>
             </MenuItem>
             <MenuItem label='Log out' to='/'>
                 <img src='@/assets/sign.png' alt='exit'>
@@ -60,5 +64,12 @@ export default {
 #logo{
     display: flex;
     align-items: center;
+}
+
+#shield{
+    position: absolute;
+    left: 100%;
+    transform: translate(-125%, 50%);
+    height: 25px !important;
 }
 </style>

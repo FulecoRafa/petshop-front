@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Open from '@/views/Open'
 import Client from '@/views/client/Client'
+import Admin from '@/views/admin/Admin'
 
 Vue.use(VueRouter)
 
@@ -39,44 +41,101 @@ const routes = [
         component: Client,
         children: [
             {
-                path: '',
-                name: 'Shop',
-                component: () => import('@/views/client/Shop')
-            },
-            {
                 path: 'profile',
-                name: 'Profile',
+                name: 'ClientProfile',
                 component: () => import('@/views/client/Profile')
             },
             {
+                path: '',
+                name: 'ClientShop',
+                component: () => import('@/views/client/Shop')
+            },
+            {
                 path: 'edit',
-                name: 'EditProfile',
-                component: () => import('@/views/client/Edit')
+                name: 'ClientEditProfile',
+                component: () => import('@/views/ProfileEdit')
             },
             {
                 path: 'cart',
-                name: 'Cart',
+                name: 'ClientCart',
                 component: () => import('@/views/client/Cart')
             },
             {
                 path: 'pay',
-                name: 'Pay',
+                name: 'ClientPay',
                 component: () => import('@/views/client/Pay')
             },
             {
                 path: 'pets',
-                name: 'Pets',
+                name: 'ClientPets',
                 component: () => import('@/views/client/Pets')
             },
             {
                 path: 'petedit',
-                name: 'PetEdit',
+                name: 'ClientPetEdit',
                 component: () => import('@/views/client/PetEdit')
             },
             {
                 path: 'services',
-                name: 'Services',
+                name: 'ClientServices',
                 component: () => import('@/views/client/Services')
+            }
+        ]
+    },
+    {
+        path: '/admin',
+        name: 'Admin',
+        component: Admin,
+        children: [
+            {
+                path: 'profile',
+                name: 'AdminProfile',
+                component: () => import('@/views/admin/Profile')
+            },
+            {
+                path: 'edit',
+                name: 'AdminEditProfile',
+                component: () => import('@/views/ProfileEdit')
+            },
+            {
+                path: 'shop',
+                name: 'AdminShop',
+                component: () => import('@/views/admin/Shop')
+            },
+            {
+                path: 'productedit',
+                name: 'AdminShop',
+                component: () => import('@/views/admin/ProductEdit')
+            },
+            {
+                path: 'users',
+                name: 'AdminUsers',
+                component: () => import('@/views/admin/Users')
+            },
+            {
+                path: 'useredit',
+                name: 'AdminUsers',
+                component: () => import('@/views/ProfileEdit')
+            },
+            {
+                path: 'services',
+                name: 'AdminServices',
+                component: () => import('@/views/admin/Services')
+            },
+            {
+                path: 'serviceedit',
+                name: 'AdminServices',
+                component: () => import('@/views/admin/ServiceEdit')
+            },
+            {
+                path: '',
+                name: 'AdminFinance',
+                component: () => import('@/views/admin/Finance')
+            },
+            {
+                path: 'schedule',
+                name: 'AdminSchedule',
+                component: () => import('@/views/admin/Schedule')
             }
         ]
     },

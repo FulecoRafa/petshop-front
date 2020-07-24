@@ -1,6 +1,3 @@
-<!-- TODO I think the array index isn't a good key -->
-<!-- TODO Add links -->
-
 <template>
     <div class='cart'>
         <SecondHeader title='Cart'></SecondHeader>
@@ -10,7 +7,7 @@
                     <CartItem :value='quantity' :name='product.name' :marca='product.marca' :price='product.price'
                     @remove='remove(key)' @increment='increment(key)' @decrement='decrement(key)'
                     @update='x => update(key, x)'>
-                        <img :src='require(`@/assets/${product.src}`)' :alt='product.alt'>
+                        <img :src='require(`@/assets/${product.src}`)' alt='product'>
                     </CartItem>
                     <hr>
                 </div>
@@ -32,8 +29,8 @@ import Card from '@/components/Card'
 import CartItem from '@/components/CartItem'
 import SecondHeader from '@/components/SecondHeader'
 
-const createProduct = (name, price, marca, desc, src, alt) => ({
-    name, price, marca, desc, src, alt
+const createProduct = (name, price, marca, desc, src) => ({
+    name, price, marca, desc, src
 })
 
 
@@ -50,15 +47,15 @@ export default {
         items: [
             {
                 quantity: 1,
-                product: createProduct('Dog food', 20.99, 'Crunchie bites', 'Box food for dogs', 'dog-food.jpg', 'dog-food')
+                product: createProduct('Dog food', 20.99, 'Crunchie bites', 'Box food for dogs', 'dog-food.jpg')
             },
             {
                 quantity: 2,
-                product: createProduct('Cat food', 20.99, 'Whiskas', 'Snacks for cats', 'catfood.jpg', 'cat-food'), 
+                product: createProduct('Cat food', 20.99, 'Whiskas', 'Snacks for cats', 'catfood.jpg'), 
             },
             {
                 quantity: 1,
-                product: createProduct('Colar', 5.99, 'Sheffield', 'Collar with guide for walk', 'coleira.jpeg', 'colar'),
+                product: createProduct('Colar', 5.99, 'Sheffield', 'Collar with guide for walk', 'coleira.jpeg'),
             }
         ]
     }),

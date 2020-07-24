@@ -1,30 +1,19 @@
-<!-- TODO Translate 'marca' -->
+<!-- A rectangular card -->
 
 <template>
-    <div class='productCard'>
-        <div class='slot'><slot></slot></div>
-        <h3>{{ name }}</h3>
-        <h4>${{ parseFloat(price).toFixed(2) }}</h4>
-        <h5>{{ marca }}</h5>
-        <p>{{ desc }}</p>
-        <router-link to='/'><img src='@/assets/cart.png' alt='cart' />Add to cart</router-link>
+    <div class='recCard'>
+        <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Product',
-    props: [
-        'name',
-        'price',
-        'marca',
-        'desc'
-    ]
+    name: 'RecCard'
 }
 </script>
 
-<style scoped>
-.productCard {
+<style>
+.recCard {
     background: whitesmoke;
     padding: 20px;
     width: 240px;
@@ -36,20 +25,20 @@ export default {
     justify-content: space-between;
     align-items: center;
 }
-.productCard *{
+.recCard *{
     padding: 5px;
 }
-.productCard h5, .productCard a p{
+.recCard h5, .recCard a p{
     color: gray;
 }
-.productCard p{
+.recCard p{
     word-break: keep-all;
 }
-.productCard .slot img{
+.recCard .slot img{
     height: 150px;
     object-fit: cover;
 }
-.productCard a{
+.recCard a {
     background: var(--secondarycolor);
     width: 100%;
     border: none;
@@ -62,11 +51,11 @@ export default {
     align-items: center;
     justify-content: center;
 }
-.productCard a img{
+.recCard a img{
     height: 24px;
     padding-right: 10px;
 }
-.productCard a:hover{
+.recCard a:hover{
     filter: brightness(1.2);
 }
 </style>

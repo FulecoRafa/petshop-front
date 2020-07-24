@@ -1,9 +1,9 @@
 <template>
-    <div class='petEdit'>
-        <SecondHeader title='Edit Pet'></SecondHeader>
+    <div class='profileEdit'>
+        <SecondHeader title='Edit Profile'></SecondHeader>
         <div class='content'>
             <Card>
-                <PetForm></PetForm>
+                <ProfileForm submit='Edit' mismatch='true'></ProfileForm>
             </Card>
         </div>
     </div>
@@ -11,19 +11,15 @@
 
 <script>
 import Card from '@/components/Card'
-import PetForm from '@/components/forms/PetForm'
+import ProfileForm from '@/components/forms/ProfileForm'
 import SecondHeader from '@/components/SecondHeader'
 
 export default {
-    name: 'PetEdit',
+    name: 'ProfileEdit',
     components: {
         Card,
-        PetForm,
+        ProfileForm,
         SecondHeader
     }
 }
 </script>
-
-<style>
-
-</style>

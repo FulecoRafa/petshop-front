@@ -1,7 +1,7 @@
 <template>
     <form id='petForm'>
         <Data class='profile-pic'>
-            <img v-if='images[type]' :src='require(`@/assets/${images[type].src}`)' alt='pet'>
+            <img v-if='images[type]' :src='require(`@/assets/${images[type]}`)' alt='pet'>
             <img v-else src='@/assets/biscuit.png' >
         </Data>
         <div class='inputwrap'>

@@ -14,7 +14,7 @@
             <MenuItem label='Profile' to='/admin/profile'>
                 <img src='@/assets/business-and-finance.png' alt='profile'>
             </MenuItem>
-            <MenuItem label='Shop' to='/admin'>
+            <MenuItem label='Shop' to='/admin/shop'>
                 <img src='@/assets/shopping.png' alt='shopping'>
             </MenuItem>
             <MenuItem label='Users' to='/admin'>
@@ -23,10 +23,7 @@
             <MenuItem label='Services' to='/admin'>
                 <img src='@/assets/tools-and-utensils.png' alt='scissors'>
             </MenuItem>
-            <MenuItem label='Finance' to='/admin'>
-                <img src='@/assets/collar.png' alt='collar'>
-            </MenuItem>
-            <MenuItem label='Finance' to='/admin'>
+            <MenuItem label='Finance' to='/admin/'>
                 <img src='@/assets/bars.png' alt='bars'>
             </MenuItem>
             <MenuItem label='Schedule' to='/admin'>

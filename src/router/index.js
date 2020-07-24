@@ -88,6 +88,11 @@ const routes = [
         component: Admin,
         children: [
             {
+                path: '',
+                name: 'Finance',
+                component: () => import('@/views/admin/Finance')
+            },
+            {
                 path: 'profile',
                 name: 'Profile',
                 component: () => import('@/views/admin/Profile')
@@ -96,6 +101,11 @@ const routes = [
                 path: 'edit',
                 name: 'EditProfile',
                 component: () => import('@/views/ProfileEdit')
+            },
+            {
+                path: 'shop',
+                name: 'Shop',
+                component: () => import('@/views/admin/Shop')
             },
         ]
     },

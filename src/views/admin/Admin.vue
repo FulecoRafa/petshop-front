@@ -1,18 +1,18 @@
 <template>
     <div class='home'>
-        <OpenNavBar></OpenNavBar>
+        <AdminNavBar></AdminNavBar>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import OpenNavBar from '@/components/navigation/OpenNavBar.vue';
+import AdminNavBar from '@/components/navigation/AdminNavBar'
 
 export default {
-    name: 'Home',
+  name: 'Admin',
     components: {
-        OpenNavBar
+        AdminNavBar
     }
 }
 </script>

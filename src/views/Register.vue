@@ -1,50 +1,22 @@
 <template>
-  <div class="content">
+  <div class='content'>
       <Card>
           <h1>Register</h1>
-            <form id="login-form">
-                <div class='inputwrap'>
-                    <h3>Name:</h3>
-                    <input type='text' name='name' placeholder='Full name' required autoFocus />
-                </div>
-                <div class='inputwrap'>
-                    <h3>Email address:</h3>
-                    <input type='email' name='email' placeholder='example@example.com' required />
-                </div>
-                <div class='inputwrap'>
-                    <h3>Address:</h3>
-                    <input type='text' name='address' placeholder='Florense Street, 23' required />
-                </div>
-                <div class='inputwrap'>
-                    <h3>Phone:</h3>
-                    <input type='text' name='phone' pattern='[0-9\(\)\- ]{16}' placeholder='(DD) 9 XXXX-XXXX' required />
-                </div>
-                <div class='inputwrap'>
-                    <h3>Profile pic:</h3>
-                    <input type='file' name='image' required />
-                </div>
-                <div class='inputwrap'>
-                    <h3>Password:</h3>
-                    <input type='password' name='passwd' min='6' required />
-                </div>
-                <div class='inputwrap'>
-                    <h3>Confirm Password:</h3>
-                    <input type='password' name='passwd2' class='passMismatch' required />
-                </div>
-                <input type='submit' value='Register' />
-            </form>
-            <router-link to='/login' class='link'>Login</router-link>
+            <ProfileForm submit='Register' mismatch=''></ProfileForm>
+            <router-link to='/login'>Login</router-link>
       </Card>
   </div>
 </template>
 
 <script>
 import Card from '../components/Card'
+import ProfileForm from '../components/forms/ProfileForm'
 
 export default {
-    name: "Content",
+    name: 'Content',
     components: {
-        Card
+        Card,
+        ProfileForm
     }
 }
 </script>
@@ -80,8 +52,8 @@ export default {
     background: unset;
 }
 
-#login-form input[name="phone"]:invalid::after{
-    content: "Invalid phone number";
+#login-form input[name='phone']:invalid::after{
+    content: 'Invalid phone number';
     color: red;
     font-size: 10px;
     

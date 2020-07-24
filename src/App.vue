@@ -1,25 +1,25 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+    <div id='app'>
+        <router-view/>
+    </div>
 </template>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
 }
 
 #nav {
-  padding: 30px;
+    padding: 30px;
 }
 
 #nav a {
-  font-weight: bold;
-  color: #2c3e50;
+    font-weight: bold;
+    color: #2c3e50;
 }
 
 #nav a.router-link-exact-active {
@@ -30,7 +30,8 @@
     --headercolor: rgb(247, 247, 247);
     --maincolor: rgb(0, 39, 212);
     --secondarycolor: rgb(62, 91, 223);
-    --cardcolor: rgb(230, 230, 230);
+    --cardcolor: white ;
+    --backgroung: rgb(230, 230, 230);
     --screen: linear-gradient(rgba(113, 103, 202, 0.3), rgba(113, 103, 202, 0.3));
     --gradient: linear-gradient(rgb(0, 39, 212), rgb(62, 91, 223));
     
@@ -41,7 +42,7 @@
 
 body{
     overflow-x: hidden;
-    background: var(--cardcolor);
+    background: var(--backgroung);
 }
 a{
     color: inherit;

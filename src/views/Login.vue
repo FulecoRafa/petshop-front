@@ -1,28 +1,28 @@
 <template>
-  <div class="content">
+  <div class='content'>
       <Card>
           <h1>Login</h1>
-            <form id="login-form">
+            <form id='login-form'>
                 <div class='inputwrap'>
-                    <i class="fas fa-user-alt"></i>
+                    <i class='fas fa-user-alt'></i>
                     <input type='text' name='email' placeholder='example@example.com' autoFocus />
                 </div>
                 <div class='inputwrap'>
-                    <i class="fas fa-lock"></i>
+                    <i class='fas fa-lock'></i>
                     <input type='password' name='passwd' placeholder='password' />
                 </div>
                 <input type='submit' value='Log in' />
             </form>
-            <router-link to='/register' class='link'>Register</router-link>
+            <router-link to='/register'>Register</router-link>
       </Card>
   </div>
 </template>
 
 <script>
-import Card from '../components/Card'
+import Card from '@/components/Card'
 
 export default {
-    name: "Login",
+    name: 'Login',
     components:{
         Card
     }

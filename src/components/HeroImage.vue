@@ -1,6 +1,6 @@
 <template>
-  <div class="heroImage">
-        <div class="title">
+  <div class='heroImage'>
+        <div class='title'>
             <h1>Le Furry</h1>
             <h2>The pet shop that has everything you need for your furry friends</h2>
         </div>
@@ -9,11 +9,11 @@
 
 <script>
 export default {
-    name: "HeroImage.vue"
+    name: 'HeroImage'
 }
 </script>
 
-<style>
+<style scoped>
 .heroImage{
     position: relative;
     background-image: url('../assets/dog.jpg');

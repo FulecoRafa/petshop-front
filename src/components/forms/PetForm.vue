@@ -1,5 +1,5 @@
 <template>
-    <form id='petForm'>
+    <form id='petForm' @submit='submitFunc'>
         <Data class='profile-pic'>
             <img v-if='images[pet.type]' :src='require(`@/assets/${images[pet.type]}`)' alt='pet'>
             <img v-else src='@/assets/biscuit.png' >
@@ -52,7 +52,8 @@ export default {
             name: '',
             age: '',
             type: 'Others',
-            breed: ''
+            breed: '',
+            image: ''
         },
         images
     }),
@@ -64,6 +65,11 @@ export default {
         event.preventDefault();
         // Make request
         let thisPet = this.pet;
+
+        const img = this.images[this.pet.type]
+        if (img) thisPet.image = img
+        else thisPet.image = 'biscuit.png'
+
         this.$http.post('http://localhost:9000/client', thisPet)
         .then(res => {
             console.log(res);

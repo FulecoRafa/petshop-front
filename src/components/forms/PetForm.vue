@@ -1,5 +1,5 @@
 <template>
-    <form id='petForm' @submit='submitAdd'>
+    <form id='petForm' @submit='(event) => id ? submitEdit(event): submitAdd(event)'>
         <Data class='profile-pic'>
             <img v-if='images[pet.type]' :src='require(`@/assets/${images[pet.type]}`)' alt='pet'>
             <img v-else src='@/assets/biscuit.png' >
@@ -29,7 +29,7 @@
             <span>Breed:</span>
             <input type='text' name='breed' v-model='pet.breed'/>
         </div>
-        <input type='submit' :value="submit || 'Submit'"/>
+        <input type='submit' :value="id ? 'Edit': 'Add'"/>
     </form>
 </template>
 
@@ -50,14 +50,15 @@ export default {
     data: () => ({
         pet:{
             name: '',
-            age: '',
+            age: 0,
             type: 'Others',
             breed: '',
             image: ''
         },
+        id: false,
         images
     }),
-    props: ['submit'],
+    props: ['user'],
     components: {
         Data
     },
@@ -66,6 +67,7 @@ export default {
             event.preventDefault();
             // Make request
             let thisPet = this.pet;
+            thisPet.client = this.user._id
 
             const img = this.images[this.pet.type]
             if (img) thisPet.image = img
@@ -73,23 +75,32 @@ export default {
 
             const auth = localStorage.getItem('auth')
             const refresh = localStorage.getItem('refresh')
+            console.log(thisPet)
 
             this.$http.post('http://localhost:9000/pets', thisPet, {headers: {auth, refresh}})
                 .then(res => {
                     console.log(res);
-                    this.$router.push('/pet');
+                    this.$router.push('pets');
                 })
                 .catch(err => {
                     alert(err.response.data);
                 });
         },
         submitEdit(event){
-            console.log(event)
+            alert(event)
             // TODO
         },
     },
     mounted() {
-        console.log(this.$props)
+        console.log(this.$route.query)
+        if(this.$route.query.id){
+            const {id, name, age, type, breed} = this.$route.query
+            this.id = id
+            this.pet.name = name ? name : this.pet.name
+            this.pet.age = age ? age : this.pet.age
+            this.pet.type = type ? type : this.pet.type
+            this.pet.breed = breed ? breed : this.pet.breed
+        }
     },
 }
 </script>

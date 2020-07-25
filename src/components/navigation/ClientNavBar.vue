@@ -5,7 +5,7 @@
                 <img src='@/assets/kennel.png' alt='kennel'>
         </router-link>
         
-        <Menu :username='name' to='/client/profile'>
+        <Menu :username='user.name' to='/client/profile'>
             <template v-slot:userImage>
                 <img src='@/assets/profile.png' alt='profilePic' />
             </template>
@@ -25,7 +25,7 @@
             <MenuItem label='Services' to='/client/services'>
                 <img src='@/assets/tools-and-utensils.png' alt='scissors'>
             </MenuItem>
-            <MenuItem label='Log out' to='/'>
+            <MenuItem label='Log out' to='/logout'>
                 <img src='@/assets/sign.png' alt='exit'>
             </MenuItem>            
         </Menu>
@@ -42,7 +42,19 @@ export default {
         Menu,
         MenuItem
     },
-    props:['name']
+    props:['user'],
+    methods:{
+      logout(){
+        this.$http.post('localhost:9000/client/logout', {key: localStorage.getItem('refresh')})
+          .then(()=>{
+            localStorage.removeItem('auth');
+            localStorage.removeItem('refresh');
+          })
+          .cacth(()=>{
+            alert("There was an error loggin out.");
+          });
+      }
+    }
 }
 </script>
 

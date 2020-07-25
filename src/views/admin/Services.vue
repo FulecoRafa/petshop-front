@@ -4,11 +4,11 @@
              <router-link to='/client/edit' class='button'>Add service</router-link>
         </SecondHeader>
         <div class='content'>
-            <SearchBox></SearchBox>
+            <SearchBox @search="search"></SearchBox>
             <Card flex='true'>
                 <Service v-for='(i, key) in services' :key='key'
-                  :name='i.name' :price='i.price' :desc='i.desc'>
-                    <img :src='require(`@/assets/${i.src}`)' alt='service'>
+                  :name='i.title' :price='i.price' :desc='i.description'>
+                    <img :src='require(`@/assets/${i.image}`)' alt='service'>
                 </Service>
             </Card>
         </div>
@@ -21,22 +21,49 @@ import Service from '@/components/rcard/Service'
 import SearchBox from '@/components/SearchBox'
 import SecondHeader from '@/components/SecondHeader'
 
-const cs = (name, price, desc, src)=> ({name, price, desc, src}) // createService
-
 export default {
     name: 'Services',
     data: () => ({
-        services:[
-            cs('Shearing', 29.99, 'Get your little boy or girl into cool haircuts', 'hair.png'),
-            cs('Bath', 29.99, 'SPA day for your best friend!', 'shampoo.png'),
-            cs('Vet checkup', 29.99, 'A healthy boy is a happy boy', 'doctor.png'),
-        ]
+        services:[]
     }),
     components: {
         Card,
         Service,
         SearchBox,
         SecondHeader
+    },
+    methods:{
+      search(prompt){
+        this.$http.post('http://localhost:9000/services/search', {prompt: prompt}, {headers:{auth: localStorage.getItem('auth'), refresh: localStorage.getItem('refresh')}})
+        .then(res=>{
+          console.log(res.data);
+          if(res.data.newAuthToken){
+            localStorage.setItem('auth', res.data.newAuthToken);
+            location.reload();
+          }else{
+            this.services = res.data
+          }
+        })
+        .catch(err=>{
+          console.log(err.response);
+          alert(err.response.data);
+        });
+      }
+    },
+    mounted:function(){
+      this.$http.get('http://localhost:9000/services', {headers:{auth: localStorage.getItem('auth'), refresh: localStorage.getItem('refresh')}})
+        .then(res=>{
+          console.log(res.data);
+          if(res.data.newAuthToken){
+            localStorage.setItem('auth', res.data.newAuthToken);
+            location.reload();
+          }else{
+            this.services = res.data
+          }
+        })
+        .catch(err=>{
+          alert(err.response.data);
+        });
     }
 }
 </script>

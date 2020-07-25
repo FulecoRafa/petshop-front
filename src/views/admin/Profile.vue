@@ -11,9 +11,9 @@
                         <img src='@/assets/avatar2.png' alt='profilePic'>
                         <img src='@/assets/shield.png' alt='shield' id='bigShield'>
                     </div>
-                    <Data label='Name'>Clayton</Data>
-                    <Data label='Email address'>fulano@email.com</Data>
-                    <Data label='Phone'>(01) 9 2345-6789</Data>
+                    <Data label='Name'>{{user.name}}</Data>
+                    <Data label='Email address'>{{user.email}}</Data>
+                    <Data label='Phone'>{{user.phone}}</Data>
                 </div>
             </Card>
         </div>
@@ -31,7 +31,8 @@ export default {
         Card,
         Data,
         SecondHeader
-    }
+    },
+    props:['user']
 }
 </script>
 

@@ -2,11 +2,11 @@
     <div class='profile'>
         <SecondHeader title='Shop'></SecondHeader>
         <div class='content'>
-            <SearchBox></SearchBox>
+            <SearchBox @search="search"></SearchBox>
             <Card flex='true'>
                 <Product v-for='(i, key) in products' :key='key'
-                  :name='i.name' :price='i.price' :marca='i.marca' :desc='i.desc'>
-                    <img :src='require(`@/assets/${i.src}`)' alt='product'>
+                  :name='i.title' :price='i.price' :desc='i.description'>
+                    <!-- <img :src='require(`@/assets/${i.src}`)' alt='product'> -->
                 </Product>
             </Card>
         </div>
@@ -19,10 +19,6 @@ import Product from '@/components/rcard/Product'
 import SearchBox from '@/components/SearchBox'
 import SecondHeader from '@/components/SecondHeader'
 
-const createProduct = (name, price, marca, desc, src) => ({
-    name, price, marca, desc, src
-})
-
 export default {
     name: 'Shop',
     components: {
@@ -32,17 +28,40 @@ export default {
         SecondHeader
     },
     data: () => ({
-        products: [
-            createProduct('Dog food', 20.99, 'Crunchie bites', 'Box food for dogs', 'dog-food.jpg'),
-            createProduct('Cat food', 20.99, 'Whiskas', 'Snacks for cats', 'catfood.jpg'),
-            createProduct('Colar', 5.99, 'Sheffield', 'Collar with guide for walk', 'coleira.jpeg'),
-            createProduct('Food Bowl', 2.99, 'Sheffield', 'Food bowl of different colors', 'pratinhodecomida.jpg'),
-            createProduct('Pet bed', 9.99, 'Sheffield', 'Comfortable little bed for your pet to sleep in', 'petbed.jpg'),
-            createProduct('Aquarium', 49.99, 'Le Fisherman', 'Large 20L aquarium with filter', 'aquario.jpeg'),
-            createProduct('Dog Toy', 1.99, 'Sheffield', 'Munching toy shapped like a bone', 'dogtoy.jpg'),
-            createProduct('Bird cage', 9.99, 'Birds of paradise', 'Small cage for small birds', 'birdcage.jpg')
-        ]
-    })
+        products: []
+    }),
+    methods:{
+      search(prompt){
+        this.$http.post('http://localhost:9000/products/search', {prompt: prompt}, {headers:{auth: localStorage.getItem('auth'), refresh: localStorage.getItem('refresh')}})
+        .then(res=>{
+          console.log(res.data);
+          if(res.data.newAuthToken){
+            localStorage.setItem('auth', res.data.newAuthToken);
+            location.reload();
+          }else{
+            this.products = res.data
+          }
+        })
+        .catch(err=>{
+          alert(err.response.data);
+        });
+      }
+    },
+    mounted:function(){
+      this.$http.get('http://localhost:9000/products', {headers:{auth: localStorage.getItem('auth'), refresh: localStorage.getItem('refresh')}})
+        .then(res=>{
+          console.log(res.data);
+          if(res.data.newAuthToken){
+            localStorage.setItem('auth', res.data.newAuthToken);
+            location.reload();
+          }else{
+            this.products = res.data
+          }
+        })
+        .catch(err=>{
+          alert(err.response.data);
+        });
+    }
 }
 </script>
 

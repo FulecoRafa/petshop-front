@@ -35,6 +35,8 @@ export default {
     methods:{
       login(event){
         event.preventDefault();
+        if(this.user.email == '') return alert('Please provide email');
+        if(this.user.passwd == '') return alert('Please provide passwd');
         this.$http.post('http://localhost:9000/client/login', this.user)
           .then(res=>{
             console.log(res);
@@ -44,7 +46,7 @@ export default {
             else this.$router.push('/client');
           })
           .catch(err=>{
-            console.log(err);
+            alert(err.response.data);
           });
       }
     }

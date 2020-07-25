@@ -1,8 +1,6 @@
 <template>
 <div id='profile'>
     <SecondHeader title='Profile'>
-        <router-link to='/client/edit' class='button'>Edit profile</router-link>
-        <router-link to='/404' class='button' style='background-color: red;color: white;'>Delete profile</router-link>
     </SecondHeader>
     <div class='content'>
         <Card>
@@ -10,10 +8,10 @@
                 <div class='datawrap' id='profilePic'>
                     <img src='@/assets/avatar2.png' alt='profilePic'>
                 </div>
-                <Data label='Name'>Fulano</Data>
-                <Data label='Email address'>fulano@email.com</Data>
-                <Data label='Address'>Florense Street, 23</Data>
-                <Data label='Phone'>(01) 9 2345-6789</Data>
+                <Data label='Name'>{{user.name}}</Data>
+                <Data label='Email address'>{{user.email}}</Data>
+                <Data label='Address'>{{user.address}}</Data>
+                <Data label='Phone'>{{user.phone}}</Data>
             </div>
         </Card>
     </div>
@@ -31,7 +29,8 @@ export default {
         Card,
         Data,
         SecondHeader
-    }
+    },
+    props:['user']
 }
 </script>
 

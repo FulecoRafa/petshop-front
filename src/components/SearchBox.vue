@@ -1,10 +1,10 @@
 <template>
     <Card class='searchBox'>
         <h3>Search</h3>
-        <form>
+        <form @submit="emit">
             <span>
-            <input type='text' name='searchPrompt' placeholder='Ex.: Dog food' />
-            <input type='submit' value='🔎' />
+            <input type='text' name='searchPrompt' placeholder='Ex.: Dog food' v-model="prompt"/>
+            <input type='submit' value='🔎'  />
             </span>
         </form>
     </Card>
@@ -17,6 +17,15 @@ export default {
     name: 'SearchBox',
     components: {
         Card
+    },
+    data: ()=>({
+      prompt:''
+    }),
+    methods:{
+      emit(event){
+        event.preventDefault();
+        this.$emit('search', this.prompt);
+      }
     }
 }
 </script>

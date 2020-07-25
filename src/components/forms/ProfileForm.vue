@@ -48,21 +48,17 @@ export default {
         event.preventDefault();
         if(!this.ok) return alert("Passwords must match");
         // Make request
-        if(this.submit == 'Register'){
-          let thisUser = this.user;
-          thisUser.image = "@/assets/profile.png"
-          thisUser.permission = 'user';
-          this.$http.post("http://localhost:9000/client", thisUser)
-            .then(res=>{
-              console.log(res);
-              this.$router.push('/login');
-            })
-            .catch(err=>{
-              alert(err.response.data);
-            });
-        }else if(this.submit == 'Edit'){
-          console.log('Edit');
-        }
+        let thisUser = this.user;
+        thisUser.image = "@/assets/profile.png"
+        thisUser.permission = 'user';
+        this.$http.post("http://localhost:9000/client", thisUser)
+          .then(res=>{
+            console.log(res);
+            this.$router.push('/login');
+          })
+          .catch(err=>{
+            alert(err.response.data);
+          });
       }
     },
     watch:{

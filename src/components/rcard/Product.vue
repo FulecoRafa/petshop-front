@@ -2,7 +2,7 @@
 
 <template>
     <RecCard>
-        <div class='slot'><slot></slot></div>
+        <!-- <div class='slot'><slot></slot></div> -->
         <h3>{{ name }}</h3>
         <h4>${{ parseFloat(price).toFixed(2) }}</h4>
         <h5>{{ marca }}</h5>

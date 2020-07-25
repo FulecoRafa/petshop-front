@@ -5,7 +5,7 @@
                 <img src='@/assets/kennel.png' alt='kennel'>
         </router-link>
         
-        <Menu username='Clayton' to='/admin/profile'>
+        <Menu :username='user.name' to='/admin/profile'>
             <template v-slot:userImage>
                 <img src='@/assets/profile.png' alt='profilePic'>
                 <img src='@/assets/shield.png' alt='shield' id='shield'>
@@ -29,7 +29,7 @@
             <MenuItem label='Schedule' to='/admin/schedule'>
                 <img src='@/assets/time.png' alt='calendar'>
             </MenuItem>
-            <MenuItem label='Log out' to='/'>
+            <MenuItem label='Log out' to='/logout'>
                 <img src='@/assets/sign.png' alt='exit'>
             </MenuItem>            
         </Menu>
@@ -45,7 +45,8 @@ export default {
     components:{
         Menu,
         MenuItem
-    }
+    },
+    props: ['user']
 }
 </script>
 

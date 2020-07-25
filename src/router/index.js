@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Open from '@/views/Open'
 import Client from '@/views/client/Client'
 import Admin from '@/views/admin/Admin'
+import Axios from 'axios'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,21 @@ const routes = [
                 path: 'login',
                 name: 'Login',
                 component: () => import(/* webpackChunckName: 'Home' */ '@/views/Login')
+            },
+            {
+              path: 'logout',
+              name: 'logout',
+              beforeEnter: (to, from, next)=>{
+                Axios.post('http://localhost:9000/client/logout', {key: localStorage.getItem('refresh')})
+                  .then(()=>{
+                    localStorage.removeItem('auth');
+                    localStorage.removeItem('refresh');
+                    next('/');
+                  })
+                  .catch(()=>{
+                    alert("Could not logout");
+                  });
+              }
             },
             {
                 path: 'register',
@@ -49,11 +65,6 @@ const routes = [
                 path: '',
                 name: 'ClientShop',
                 component: () => import('@/views/client/Shop')
-            },
-            {
-                path: 'edit',
-                name: 'ClientEditProfile',
-                component: () => import('@/views/ProfileEdit')
             },
             {
                 path: 'cart',

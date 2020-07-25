@@ -4,7 +4,7 @@
         <h3>{{ name }}</h3>
         <h4>${{ parseFloat(price).toFixed(2) }}</h4>
         <p>{{ desc }}</p>
-        <router-link to='/admin/serviceedit'>Edit</router-link>
+        <router-link :to="{path: '/admin/serviceedit', query: {id}}">Edit</router-link>
     </RecCard>
 </template>
 
@@ -13,7 +13,7 @@ import RecCard from '@/components/rcard/RecCard'
 
 export default {
     name: 'Service',
-    props: ['name', 'price', 'desc'],
+    props: ['name', 'price', 'desc', 'id'],
     components: {
         RecCard
     }

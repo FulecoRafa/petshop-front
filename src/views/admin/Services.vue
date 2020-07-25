@@ -1,7 +1,7 @@
 <template>
     <div class='services'>
-        <SecondHeader title='services'>
-             <router-link to='/client/edit' class='button'>Add service</router-link>
+        <SecondHeader title='Services'>
+             <router-link to='/admin/serviceedit' class='button'>Add service</router-link>
         </SecondHeader>
         <div class='content'>
             <SearchBox @search="search"></SearchBox>

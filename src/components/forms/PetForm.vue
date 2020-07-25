@@ -1,5 +1,5 @@
 <template>
-    <form id='petForm' @submit='(event) => id ? submitEdit(event): submitAdd(event)'>
+    <form id='petForm' @submit='submitFunc'>
         <Data class='profile-pic'>
             <img v-if='images[pet.type]' :src='require(`@/assets/${images[pet.type]}`)' alt='pet'>
             <img v-else src='@/assets/biscuit.png' >
@@ -62,6 +62,11 @@ export default {
         Data
     },
     methods: {
+        submitFunc(event){
+            if(this.id) this.submitEdit(event)
+            else this.submitEdit(event)
+        },
+
         submitAdd(event){
             event.preventDefault();
 
@@ -118,7 +123,6 @@ export default {
         },
     },
     mounted() {
-        console.log(this.$route.query)
         if(this.$route.query.id){
             const {id, name, age, type, breed} = this.$route.query
             this.id = id

@@ -1,28 +1,86 @@
 <template>
-   <form id='serviceForm'>
+   <form id='serviceForm' @submit='submitFunc'>
         <div class='inputwrap'>
             <span>Service name:</span>
-            <input type='text' name='name' placeholder='Ex.: Shearing'/>
+            <input type='text' name='name' placeholder='Ex.: Shearing' v-model='service.title'/>
         </div>
         <div class='inputwrap'>
-            <span>Price: $</span>
-            <input type='number' step='0.01' name='price' placeholder='20.99'/>
+            <span>Slug:</span>
+            <input type='text' name='name' placeholder='shearing' v-model='service.slug'/>
         </div>
         <div class='inputwrap'>
             <span>Description:</span>
-            <input type='text' name='description' placeholder='Describe your service'/>
+            <input type='text' name='description' placeholder='Describe your service' v-model='service.description'/>
         </div>
         <div class='inputwrap'>
-            <span>Tags:</span>
-            <input type='text' name='tags' placeholder='[tag,tag,tag]'/>
+            <span>Partner:</span>
+            <input type='text' name='Partner' placeholder='Peter' v-model='service.partner'/>
         </div>
-        <input type='submit' value='Add'/>
+        <div class='inputwrap'>
+            <span>Price: $</span>
+            <input type='number' step='0.01' name='price' placeholder='20.99' v-model='service.price'/>
+        </div>
+        <div class='inputwrap'>
+            <span>Hours</span>
+            <input type='text' name='hours' placeholder='[11, 12, 13]' v-model='service.hours'/>
+        </div>
+        <input type='submit' :value="id ? 'Edit' : 'Add'"/>
     </form>
 </template>
 
 <script>
 export default {
+    name: 'ServiceForm',
+    data: () => ({
+        service: {
+            title: '',
+            slug: '',
+            description: '',
+            partner: '',
+            price: 0,
+            hours: '',
+        },
+        id: false
+    }),
+    methods: {
+        submitFunc(event) {
+            if(this.id) this.submitEdit(event)
+            else this.submitAdd(event)
+        },
+        submitAdd(event){
+            event.preventDefault()
 
+            // Make request
+            const thisService = this.service
+            thisService.image = 'img' // TODO image src
+            thisService.hours = eval(thisService.hours)
+
+            const headers = {
+                headers: {
+                    auth:    localStorage.getItem('auth'),
+                    refresh: localStorage.getItem('refresh')
+                }
+            }
+
+            this.$http.post('http://localhost:9000/services', thisService, headers)
+                .then(res => {
+                    console.log(res)
+                    this.$router.push('services')
+                })
+                .catch(err => {
+                    console.log(err.response.data)
+                    alert(err.response.data)
+                })
+        },
+        submitEdit(event){
+            event.preventDefault()
+            console.log(event)
+            // TODO
+        }
+    },
+    mounted() {
+        // TODO
+    }
 }
 </script>
 

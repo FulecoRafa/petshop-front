@@ -65,11 +65,10 @@ export default {
       passwd2: function(){
         this.ok = (this.user.passwd == this.passwd2);
       },
-      user:{
-        phone: function(){
-          this.user.phone = this.user.phone.replace(/(\D|\s)/g, '');
-          this.user.phone = this.user.phone.replace(/(\d{1,2})?(\d)?(\d{1,4})?(\d{1,4})?/mi, '($1) $2 $3-$4');
-        }
+      'user.phone': function (){
+        this.user.phone = this.user.phone.replace(/(\D|\s)/g, '');
+        this.user.phone = this.user.phone.replace(/(\d{1,2})?(\d)?(\d{1,4})?(\d{1,4})?/mi, '($1) $2 $3-$4');
+        this.user.phone = this.user.phone.replace(/[^\d]+$/mi, '')
       }
     }
 }

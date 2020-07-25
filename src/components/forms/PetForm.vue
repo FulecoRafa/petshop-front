@@ -65,30 +65,57 @@ export default {
     methods: {
         submitAdd(event){
             event.preventDefault();
+
             // Make request
-            let thisPet = this.pet;
+            const thisPet = this.pet;
             thisPet.client = this.user._id
 
             const img = this.images[this.pet.type]
             if (img) thisPet.image = img
             else thisPet.image = 'biscuit.png'
 
-            const auth = localStorage.getItem('auth')
-            const refresh = localStorage.getItem('refresh')
-            console.log(thisPet)
+            const headers = {
+                headers: {
+                    auth: localStorage.getItem('auth'),
+                    refresh: localStorage.getItem('refresh')
+                }
+            }
 
-            this.$http.post('http://localhost:9000/pets', thisPet, {headers: {auth, refresh}})
+            this.$http.post('http://localhost:9000/pets', thisPet, headers)
                 .then(res => {
-                    console.log(res);
-                    this.$router.push('pets');
+                    console.log(res)
+                    this.$router.push('pets')
                 })
                 .catch(err => {
-                    alert(err.response.data);
-                });
+                    alert(err.response.data)
+                })
         },
         submitEdit(event){
-            alert(event)
-            // TODO
+            event.preventDefault()
+
+            // Make request
+            const thisPet = this.pet
+            thisPet
+
+            const img = this.images[this.pet.type]
+            if (img) thisPet.image = img
+            else thisPet.image = 'biscuit.png'
+
+            const headers = { 
+                headers: {
+                    auth: localStorage.getItem('auth'),
+                    refresh: localStorage.getItem('refresh')
+                }
+            }
+
+            this.$http.put('http://localhost:9000/pets/' + this.id, thisPet, headers)
+                .then(res => {
+                    console.log(res)
+                    this.$router.push('pets')
+                })
+                .catch (err=> {
+                    alert(err.response.data)
+                })
         },
     },
     mounted() {

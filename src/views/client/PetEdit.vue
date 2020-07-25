@@ -3,7 +3,7 @@
         <SecondHeader title='Edit Pet'></SecondHeader>
         <div class='content'>
             <Card>
-                <PetForm></PetForm>
+                <PetForm submit='Add'></PetForm>
             </Card>
         </div>
     </div>

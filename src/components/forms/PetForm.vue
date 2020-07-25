@@ -1,20 +1,20 @@
 <template>
     <form id='petForm'>
         <Data class='profile-pic'>
-            <img v-if='images[type]' :src='require(`@/assets/${images[type]}`)' alt='pet'>
+            <img v-if='images[pet.type]' :src='require(`@/assets/${images[pet.type]}`)' alt='pet'>
             <img v-else src='@/assets/biscuit.png' >
         </Data>
         <div class='inputwrap'>
             <span>Pet name:</span>
-            <input type='text' name='name' placeholder='Ex.: Rex'/>
+            <input type='text' name='name' placeholder='Ex.: Rex' v-model='pet.name'/>
         </div>
         <div class='inputwrap'>
             <span>Age:</span>
-            <input type='number' name='age' placeholder='5'/>
+            <input type='number' name='age' placeholder='5' v-model='pet.age'/>
         </div>
         <div class='inputwrap'>
             <span>Type:</span>
-            <select v-model='type' name='type'>
+            <select name='type' v-model='pet.type'>
                 <option value='Dog'>Dog</option>
                 <option value='Cat'>Cat</option>
                 <option value='Bird'>Bird</option>
@@ -27,9 +27,9 @@
         </div>
         <div class='inputwrap'>
             <span>Breed:</span>
-            <input type='text' name='breed'/>
+            <input type='text' name='breed' v-model='pet.breed'/>
         </div>
-        <input type='submit' value='Add'/>
+        <input type='submit' :value="submit || 'Submit'"/>
     </form>
 </template>
 
@@ -48,11 +48,30 @@ const images = {
 export default {
     name: 'PetForm',
     data: () => ({
-        type: 'Others',
+        pet:{
+            name: '',
+            age: '',
+            type: 'Others',
+            breed: ''
+        },
         images
     }),
+    props: ['submit'],
     components: {
         Data
+    },
+    submitFunc(event){
+        event.preventDefault();
+        // Make request
+        let thisPet = this.pet;
+        this.$http.post('http://localhost:9000/client', thisPet)
+        .then(res => {
+            console.log(res);
+            this.$router.push('/pet');
+        })
+        .catch(err => {
+            alert(err.response.data);
+        });
     }
 }
 </script>

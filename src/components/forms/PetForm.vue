@@ -1,5 +1,5 @@
 <template>
-    <form id='petForm' @submit='submitFunc'>
+    <form id='petForm' @submit='submitAdd'>
         <Data class='profile-pic'>
             <img v-if='images[pet.type]' :src='require(`@/assets/${images[pet.type]}`)' alt='pet'>
             <img v-else src='@/assets/biscuit.png' >
@@ -61,24 +61,36 @@ export default {
     components: {
         Data
     },
-    submitFunc(event){
-        event.preventDefault();
-        // Make request
-        let thisPet = this.pet;
+    methods: {
+        submitAdd(event){
+            event.preventDefault();
+            // Make request
+            let thisPet = this.pet;
 
-        const img = this.images[this.pet.type]
-        if (img) thisPet.image = img
-        else thisPet.image = 'biscuit.png'
+            const img = this.images[this.pet.type]
+            if (img) thisPet.image = img
+            else thisPet.image = 'biscuit.png'
 
-        this.$http.post('http://localhost:9000/client', thisPet)
-        .then(res => {
-            console.log(res);
-            this.$router.push('/pet');
-        })
-        .catch(err => {
-            alert(err.response.data);
-        });
-    }
+            const auth = localStorage.getItem('auth')
+            const refresh = localStorage.getItem('refresh')
+
+            this.$http.post('http://localhost:9000/pets', thisPet, {headers: {auth, refresh}})
+                .then(res => {
+                    console.log(res);
+                    this.$router.push('/pet');
+                })
+                .catch(err => {
+                    alert(err.response.data);
+                });
+        },
+        submitEdit(event){
+            console.log(event)
+            // TODO
+        },
+    },
+    mounted() {
+        console.log(this.$props)
+    },
 }
 </script>
 

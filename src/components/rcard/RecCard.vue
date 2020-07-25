@@ -38,6 +38,26 @@ export default {
     height: 150px;
     object-fit: cover;
 }
+.recCard button {
+    background: var(--secondarycolor);
+    width: 100%;
+    border: none;
+    border-radius: 1px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.recCard button img{
+    height: 24px;
+    padding-right: 10px;
+}
+.recCard button:hover{
+    filter: brightness(1.2);
+}
 .recCard a {
     background: var(--secondarycolor);
     width: 100%;

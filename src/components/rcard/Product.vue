@@ -7,7 +7,7 @@
         <h4>${{ parseFloat(price).toFixed(2) }}</h4>
         <h5>{{ marca }}</h5>
         <p>{{ desc }}</p>
-        <router-link to='/'><img src='@/assets/cart.png' alt='cart' />Add to cart</router-link>
+        <button @click="$emit('buy')" ><img src='@/assets/cart.png' alt='cart' />Add to cart</button>
     </RecCard>
 </template>
 

@@ -1,20 +1,20 @@
 <template>
-    <form id='petForm'>
+    <form id='petForm' @submit='(event) => id ? submitEdit(event): submitAdd(event)'>
         <Data class='profile-pic'>
-            <img v-if='images[type]' :src='require(`@/assets/${images[type]}`)' alt='pet'>
+            <img v-if='images[pet.type]' :src='require(`@/assets/${images[pet.type]}`)' alt='pet'>
             <img v-else src='@/assets/biscuit.png' >
         </Data>
         <div class='inputwrap'>
             <span>Pet name:</span>
-            <input type='text' name='name' placeholder='Ex.: Rex'/>
+            <input type='text' name='name' placeholder='Ex.: Rex' v-model='pet.name'/>
         </div>
         <div class='inputwrap'>
             <span>Age:</span>
-            <input type='number' name='age' placeholder='5'/>
+            <input type='number' name='age' placeholder='5' v-model='pet.age'/>
         </div>
         <div class='inputwrap'>
             <span>Type:</span>
-            <select v-model='type' name='type'>
+            <select name='type' v-model='pet.type'>
                 <option value='Dog'>Dog</option>
                 <option value='Cat'>Cat</option>
                 <option value='Bird'>Bird</option>
@@ -27,9 +27,9 @@
         </div>
         <div class='inputwrap'>
             <span>Breed:</span>
-            <input type='text' name='breed'/>
+            <input type='text' name='breed' v-model='pet.breed'/>
         </div>
-        <input type='submit' value='Add'/>
+        <input type='submit' :value="id ? 'Edit': 'Add'"/>
     </form>
 </template>
 
@@ -48,12 +48,87 @@ const images = {
 export default {
     name: 'PetForm',
     data: () => ({
-        type: 'Others',
+        pet:{
+            name: '',
+            age: 0,
+            type: 'Others',
+            breed: '',
+            image: ''
+        },
+        id: false,
         images
     }),
+    props: ['user'],
     components: {
         Data
-    }
+    },
+    methods: {
+        submitAdd(event){
+            event.preventDefault();
+
+            // Make request
+            const thisPet = this.pet;
+            thisPet.client = this.user._id
+
+            const img = this.images[this.pet.type]
+            if (img) thisPet.image = img
+            else thisPet.image = 'biscuit.png'
+
+            const headers = {
+                headers: {
+                    auth: localStorage.getItem('auth'),
+                    refresh: localStorage.getItem('refresh')
+                }
+            }
+
+            this.$http.post('http://localhost:9000/pets', thisPet, headers)
+                .then(res => {
+                    console.log(res)
+                    this.$router.push('pets')
+                })
+                .catch(err => {
+                    alert(err.response.data)
+                })
+        },
+        submitEdit(event){
+            event.preventDefault()
+
+            // Make request
+            const thisPet = this.pet
+            thisPet
+
+            const img = this.images[this.pet.type]
+            if (img) thisPet.image = img
+            else thisPet.image = 'biscuit.png'
+
+            const headers = { 
+                headers: {
+                    auth: localStorage.getItem('auth'),
+                    refresh: localStorage.getItem('refresh')
+                }
+            }
+
+            this.$http.put('http://localhost:9000/pets/' + this.id, thisPet, headers)
+                .then(res => {
+                    console.log(res)
+                    this.$router.push('pets')
+                })
+                .catch (err=> {
+                    alert(err.response.data)
+                })
+        },
+    },
+    mounted() {
+        console.log(this.$route.query)
+        if(this.$route.query.id){
+            const {id, name, age, type, breed} = this.$route.query
+            this.id = id
+            this.pet.name = name ? name : this.pet.name
+            this.pet.age = age ? age : this.pet.age
+            this.pet.type = type ? type : this.pet.type
+            this.pet.breed = breed ? breed : this.pet.breed
+        }
+    },
 }
 </script>
 

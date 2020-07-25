@@ -22,7 +22,6 @@
                 <option value='Fish'>Fish</option>
                 <option value='Rabbit'>Rabbit</option>
                 <option value='Hamster'>Hamster</option>
-                <option value='other'>Other...</option>
             </select>
         </div>
         <div class='inputwrap'>

@@ -1,9 +1,12 @@
 <template>
     <div class='pets'>
-        <SecondHeader title='Pets'></SecondHeader>
+        <SecondHeader title='Pets'>
+            <router-link class='button' to='/client/petedit'>Add</router-link>
+        </SecondHeader>
         <div class='content' style='flex-direction: row;'>
-            <Pet name='Rex' type='Dog' race='Shi Tzu' age='4'></Pet>
-            <Pet name='Milicuco' type='Cat' race='Show shoes' age='10'></Pet>
+            <Pet v-for='(i, key) in this.pets' :key='key'
+              :id='i._id' :name='i.name' :type='i.type' :breed='i.breed' :age='i.age'>
+            </Pet>
         </div>
     </div>
 </template>
@@ -17,10 +20,41 @@ export default {
     components: {
         Pet,
         SecondHeader
+    },
+    props: ['user'],
+    data: () => ({
+        pets: []
+    }),
+    mounted() {
+        const auth = localStorage.getItem('auth')
+        const refresh = localStorage.getItem('refresh')
+        this.$http.get('http://localhost:9000/pets/client', {headers: {auth, refresh}})
+            .then(res => {
+                console.log(res.data)
+                if(res.data.newAuthToken) {
+                    localStorage.setItem('auth', res.data.newAuthToken)
+                    location.reload()
+                } else {
+                    this.pets = res.data
+                }
+            })
+            .catch(err => {
+                alert(err.response.data)
+            })
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+.button {
+    background-color: white;
+    color: var(--maincolor);
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    margin-left: 15px;
+}
+.button:hover{
+    filter: brightness(1.2);
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+}
 </style>

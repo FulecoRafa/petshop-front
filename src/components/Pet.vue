@@ -7,9 +7,9 @@
             </Data>
             <Data class='data' label='Name'>{{ name }}</Data>
             <Data class='data' label='Type'>{{ type }}</Data>
-            <Data class='data' label='Race'>{{ race }}</Data>
             <Data class='data' label='Age'>{{ age }}</Data>
-            <router-link to='/client/petedit'>Edit</router-link>
+            <Data class='data' label='Breed'>{{ breed }}</Data>
+            <router-link :to="{path: '/client/petedit', query:{id, name, type, breed, age}}">Edit</router-link>
         </div>
     </Card>
 </template>
@@ -34,7 +34,7 @@ export default {
         Data,
         Card
     },
-    props: ['name', 'type', 'race', 'age'],
+    props: ['name', 'type', 'age', 'breed','id'],
     data: () => ({
         images
     }),

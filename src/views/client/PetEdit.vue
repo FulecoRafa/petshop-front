@@ -3,7 +3,7 @@
         <SecondHeader title='Edit Pet'></SecondHeader>
         <div class='content'>
             <Card>
-                <PetForm></PetForm>
+                <PetForm submit='Add' :user='user'></PetForm>
             </Card>
         </div>
     </div>
@@ -16,6 +16,7 @@ import SecondHeader from '@/components/SecondHeader'
 
 export default {
     name: 'PetEdit',
+    props: ['user'],
     components: {
         Card,
         PetForm,

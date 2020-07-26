@@ -2,23 +2,23 @@
     <form id='productForm' @submit='submitFunc'>
         <div class='inputwrap'>
             <span>Product name:</span>
-            <input type='text' name='name' placeholder='Ex.: Dog food' v-model='product.title'/>
+            <input type='text' name='name' placeholder='Ex.: Dog food' v-model='product.title' required>
         </div>
         <div class='inputwrap'>
             <span>Slug:</span>
-            <input type='text' name='name' placeholder='Ex.: dog-food' v-model='product.slug'/>
+            <input type='text' name='name' placeholder='Ex.: dog-food' v-model='product.slug' required>
         </div>
         <div class='inputwrap'>
             <span>Description:</span>
-            <input type='text' name='description' placeholder='Describe your product' v-model='product.description'/>
+            <input type='text' name='description' placeholder='Describe your product' v-model='product.description' required>
         </div>
         <div class='inputwrap'>
             <span>Price: $</span>
-            <input type='number' step='0.01' name='price' placeholder='20.99' v-model='product.price'/>
+            <input type='number' step='0.01' name='price' placeholder='20.99' v-model='product.price' required>
         </div>
         <div class='inputwrap'>
             <span>Tags:</span>
-            <input type='text' name='tags' placeholder="['tag','tag','tag']" v-model='product.tags'/>
+            <input type='text' name='tags' placeholder="['tag','tag','tag']" v-model='product.tags' required>
         </div>
         <!--
         <div class='inputwrap'>

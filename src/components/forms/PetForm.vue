@@ -6,15 +6,15 @@
         </Data>
         <div class='inputwrap'>
             <span>Pet name:</span>
-            <input type='text' name='name' placeholder='Ex.: Rex' v-model='pet.name'/>
+            <input type='text' name='name' placeholder='Ex.: Rex' v-model='pet.name' required>
         </div>
         <div class='inputwrap'>
             <span>Age:</span>
-            <input type='number' name='age' placeholder='5' v-model='pet.age'/>
+            <input type='number' name='age' placeholder='5' v-model='pet.age' required>
         </div>
         <div class='inputwrap'>
             <span>Type:</span>
-            <select name='type' v-model='pet.type'>
+            <select name='type' v-model='pet.type' required>
                 <option value='Dog'>Dog</option>
                 <option value='Cat'>Cat</option>
                 <option value='Bird'>Bird</option>
@@ -26,7 +26,7 @@
         </div>
         <div class='inputwrap'>
             <span>Breed:</span>
-            <input type='text' name='breed' v-model='pet.breed'/>
+            <input type='text' name='breed' v-model='pet.breed' required>
         </div>
         <input type='submit' :value="id ? 'Edit': 'Add'"/>
     </form>
@@ -64,7 +64,7 @@ export default {
     methods: {
         submitFunc(event){
             if(this.id) this.submitEdit(event)
-            else this.submitEdit(event)
+            else this.submitAdd(event)
         },
 
         submitAdd(event){

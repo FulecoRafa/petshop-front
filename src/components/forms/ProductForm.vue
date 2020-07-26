@@ -1,36 +1,142 @@
 <template>
-    <form id='productForm'>
+    <form id='productForm' @submit='submitFunc'>
         <div class='inputwrap'>
             <span>Product name:</span>
-            <input type='text' name='name' placeholder='Ex.: Dog food'/>
+            <input type='text' name='name' placeholder='Ex.: Dog food' v-model='product.title'/>
         </div>
         <div class='inputwrap'>
-            <span>Price: $</span>
-            <input type='number' step='0.01' name='price' placeholder='20.99'/>
+            <span>Slug:</span>
+            <input type='text' name='name' placeholder='Ex.: dog-food' v-model='product.slug'/>
         </div>
         <div class='inputwrap'>
             <span>Description:</span>
-            <input type='text' name='description' placeholder='Describe your product'/>
+            <input type='text' name='description' placeholder='Describe your product' v-model='product.description'/>
+        </div>
+        <div class='inputwrap'>
+            <span>Price: $</span>
+            <input type='number' step='0.01' name='price' placeholder='20.99' v-model='product.price'/>
         </div>
         <div class='inputwrap'>
             <span>Tags:</span>
-            <input type='text' name='tags' placeholder='[tag,tag,tag]'/>
+            <input type='text' name='tags' placeholder="['tag','tag','tag']" v-model='product.tags'/>
         </div>
-        <div class='inputwrap'>
-            <span>In stock:</span>
-            <input type='number' name='stock'/>
-        </div>
+        <!--
         <div class='inputwrap'>
             <span>Brand:</span>
             <input type='text' name='brand' placeholder='Ex.: Pedigree'/>
         </div>
-        <input type='submit' value='Edit'>
+        -->
+        <input type='submit' :value="id ? 'Edit' : 'Add'">
     </form>
 </template>
 
 <script>
 export default {
-    name: 'Product'
+    name: 'Product',
+    data: () => ({
+        product: {
+            title: '',
+            slug: '',
+            description: '',
+            price: 0,
+            tags: '',
+            
+        },
+        id: false
+    }),
+    methods: {
+        submitFunc(event) {
+            if(this.id) this.submitEdit(event)
+            else this.submitAdd(event)
+        },
+        submitAdd(event) {
+            event.preventDefault()
+
+            const thisProduct = this.product
+            thisProduct.tags = eval(thisProduct.tags)
+
+            const headers = {
+                headers: {
+                    auth:    localStorage.getItem('auth'),
+                    refresh: localStorage.getItem('refresh') 
+                }
+            }
+            this.$http.post('http://localhost:9000/products', thisProduct, headers)
+                .then(res => {
+                    console.log(res)
+                    this.$router.push('shop')
+                })
+                .catch(err => {
+                    alert(err.response.data)
+                })
+
+        },
+        submitEdit(event) {
+            event.preventDefault()
+            console.log(event)
+
+            const thisProduct = this.product
+            thisProduct.tags = eval(thisProduct.tags)
+
+            const headers = {
+                headers: {
+                    auth:    localStorage.getItem('auth'),
+                    refresh: localStorage.getItem('refresh') 
+                }
+            }
+
+            this.$http.put('http://localhost:9000/products/' + this.id, thisProduct, headers)
+                .then(res => {
+                    console.log(res)
+                    this.$router.push('shop')
+                })
+                .catch(err => {
+                    alert(err.response.data)
+                })
+        },
+        tagsToString(tags) {
+            let str = '['
+            for(let i in tags) {
+                str += `'${i}', `
+            }
+            str = str.slice(0, -2)
+            str += ']'
+            return str
+        }
+    },
+    mounted() {
+        if(this.$route.query.id) {
+            this.id = this.$route.query.id
+
+            const headers = {
+                headers: {
+                    auth: localStorage.getItem('auth'),
+                    refresh: localStorage.getItem('refresh')
+                }
+            }
+            this.$http.get('http://localhost:9000/products/id/' + this.id, headers)
+                .then(res => {
+                    const {
+                        title,
+                        slug,
+                        description,
+                        price,
+                        tags
+                    } = res.data
+                    console.log(res.data)
+
+                    this.product.title = title
+                    this.product.slug = slug
+                    this.product.description = description
+                    this.product.price = price
+                    
+                    this.product.tags = this.tagsToString(tags)
+                })
+                .catch(err => {
+                    alert(err.response.body)
+                })
+        }
+    }
 }
 </script>
 

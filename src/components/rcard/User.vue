@@ -5,7 +5,6 @@
         <div class='slot'><slot></slot></div>
         <h3>{{ name }}</h3>
         <h4>{{ admin }}</h4>
-        <router-link to='/admin/profile.png'>Edit</router-link>
     </RecCard>
 </template>
 

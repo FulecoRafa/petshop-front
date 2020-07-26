@@ -104,11 +104,6 @@ const routes = [
                 component: () => import('@/views/admin/Profile')
             },
             {
-                path: 'edit',
-                name: 'AdminEditProfile',
-                component: () => import('@/views/ProfileEdit')
-            },
-            {
                 path: 'shop',
                 name: 'AdminShop',
                 component: () => import('@/views/admin/Shop')
@@ -122,11 +117,6 @@ const routes = [
                 path: 'users',
                 name: 'AdminUsers',
                 component: () => import('@/views/admin/Users')
-            },
-            {
-                path: 'useredit',
-                name: 'AdminUsers',
-                component: () => import('@/views/ProfileEdit')
             },
             {
                 path: 'services',

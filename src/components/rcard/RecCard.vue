@@ -34,7 +34,7 @@ export default {
 .recCard p{
     word-break: keep-all;
 }
-.recCard .slot img{
+.recCard img{
     height: 150px;
     object-fit: cover;
 }

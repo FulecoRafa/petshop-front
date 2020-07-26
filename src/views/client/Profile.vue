@@ -1,7 +1,6 @@
 <template>
 <div id='profile'>
-    <SecondHeader title='Profile'>
-    </SecondHeader>
+    <SecondHeader title='Profile'></SecondHeader>
     <div class='content'>
         <Card>
             <div id='profileContent'>
@@ -69,17 +68,5 @@ export default {
 }
 #profileContent .button:hover{
     filter: brightness(1.2);
-}
-
-.button {
-    background-color: white;
-    color: var(--maincolor);
-    padding: 10px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-    margin-left: 15px;
-}
-.button:hover{
-    filter: brightness(1.2);
-    box-shadow: 1px 1px 8px rgba(0,0,0,0.7);
 }
 </style>

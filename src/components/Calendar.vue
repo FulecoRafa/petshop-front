@@ -29,7 +29,7 @@ export default {
         hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
         numDays: 10,
         now: new Date(),
-        allSchedule: []
+        schedule: {}
     }),
     methods: {
         calcWeekday(w){
@@ -66,38 +66,64 @@ export default {
         getSchedule(dayOffset, hour) {
             const day = this.addDays(this.now, dayOffset)
             const index = this.createIndex(day, hour)
-            console.log(index)
-            console.log(this.schedule)
             return this.schedule[index]
         }
     },
-    computed: {
-        schedule() {
-            const obj = {}
-            for(let i of this.allSchedule) {
-                console.log(i.date)
-                let date = new Date(i.date)
-                date = this.addDays(date, 1)
-                const index = this.createIndex(date, i.hour)
-                obj[index] = i
+    async mounted() {
+        try {
+            const body = {
+                from: this.dateToQuery(this.now),
+                to:   this.dateToQuery(this.addDays(this.now, this.numDays))
             }
-            return obj
-        }
-    },
-    mounted() {
-        const body = {
-            from: this.dateToQuery(this.now),
-            to:   this.dateToQuery(this.addDays(this.now, this.numDays))
-        }
 
-        this.$http.post(' http://localhost:9000/apointments/times', body)
-            .then(res => {
-                console.log(res.data)
-                this.allSchedule = res.data
-            })
-            .catch(err => {
-                alert(err.response.body)
-            })
+            let res = await this.$http.post('http://localhost:9000/apointments/times', body)
+            let allSchedule = res.data
+
+            let obj = {}
+            for(let i of allSchedule){
+                let {_id, client, hour, pet, service} = i
+                console.log(i)
+                let newDate = new Date(i.date)
+                newDate = this.addDays(newDate, 1)
+
+
+                const index =this.createIndex(
+                    newDate,
+                    i.hour
+                )
+
+                // const headers = {
+                //     headers: {
+                //         auth: localStorage.getItem('auth'),
+                //         refresh: localStorage.getItem('refresh')
+                //     }
+                // }
+
+                // res = await this.$http.get('http://localhost:9000/client/id/' + client, headers)
+                // client = res.data
+                // console.log('client')
+
+                // res = await this.$http.get('http://localhost:9000/pets/id/' + pet, headers)
+                // pet = res.data
+                // console.log('pet')
+
+                // res = await this.$http.get('http://localhost:9000/services/id/' + service, headers)
+                // service = res.data
+                // console.log('service')
+
+
+                obj[index] = {
+                    _id,
+                    client,
+                    hour,
+                    pet,
+                    service
+                }
+            }
+            this.schedule = obj
+        } catch (err) {
+            alert(err)
+        }
     }
 }
 </script>

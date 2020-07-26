@@ -1,10 +1,13 @@
 <template>
     <div class='shop'>
-        <SecondHeader title='Shop'></SecondHeader>
+        <SecondHeader title='Shop'>
+            <router-link to='/admin/productedit' class='button'>Add</router-link>
+        </SecondHeader>
         <div class='content'>
             <SearchBox @search="search"></SearchBox>
             <Card flex='true'>
-                <ProductEdit v-for='(i, key) in products' :key='key' :name='i.title' :price='i.price' :desc='i.description'>
+                <ProductEdit v-for='(i, key) in products' :key='key'
+                 :name='i.title' :price='i.price' :desc='i.description' :id='i._id'>
                     <!-- <img :src='require(`@/assets/${i.src}`)' alt='product'> -->
                 </ProductEdit>
             </Card>
@@ -63,3 +66,17 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.button {
+    background-color: white;
+    color: var(--maincolor);
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    margin-left: 15px;
+}
+.button:hover{
+    filter: brightness(1.2);
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+}
+</style>

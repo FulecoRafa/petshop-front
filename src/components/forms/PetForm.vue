@@ -99,7 +99,6 @@ export default {
 
             // Make request
             const thisPet = this.pet
-            thisPet
 
             const img = this.images[this.pet.type]
             if (img) thisPet.image = img

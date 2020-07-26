@@ -14,27 +14,27 @@
         </div>
         <div class='inputwrap'>
             <span>Service name:</span>
-            <input type='text' name='name' placeholder='Ex.: Shearing' v-model='service.title'/>
+            <input type='text' name='name' placeholder='Ex.: Shearing' v-model='service.title' required>
         </div>
         <div class='inputwrap'>
             <span>Slug:</span>
-            <input type='text' name='name' placeholder='shearing' v-model='service.slug'/>
+            <input type='text' name='name' placeholder='shearing' v-model='service.slug' required>
         </div>
         <div class='inputwrap'>
             <span>Description:</span>
-            <input type='text' name='description' placeholder='Describe your service' v-model='service.description'/>
+            <input type='text' name='description' placeholder='Describe your service' v-model='service.description' required>
         </div>
         <div class='inputwrap'>
             <span>Partner:</span>
-            <input type='text' name='Partner' placeholder='Peter' v-model='service.partner'/>
+            <input type='text' name='Partner' placeholder='Peter' v-model='service.partner' required>
         </div>
         <div class='inputwrap'>
             <span>Price: $</span>
-            <input type='number' step='0.01' name='price' placeholder='20.99' v-model='service.price'/>
+            <input type='number' step='0.01' name='price' placeholder='20.99' v-model='service.price' required>
         </div>
         <div class='inputwrap'>
             <span>Hours</span>
-            <input type='text' name='hours' placeholder='[11, 12, 13]' v-model='service.hours'/>
+            <input type='text' name='hours' placeholder='[11, 12, 13]' v-model='service.hours' required>
         </div>
         <input type='submit' :value="id ? 'Edit' : 'Add'"/>
     </form>

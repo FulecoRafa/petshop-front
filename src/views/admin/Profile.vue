@@ -1,9 +1,6 @@
 <template>
     <div id='profile'>
-        <SecondHeader title='Profile'>
-            <router-link to='/admin/edit' class='button'>Edit profile</router-link>
-            <router-link to='/404' class='button' style='background-color: red;color: white;'>Delete profile</router-link>
-        </SecondHeader>
+        <SecondHeader title='Profile'></SecondHeader>
         <div class='content'>
             <Card>
                 <div id='profileContent'>
@@ -70,17 +67,5 @@ export default {
   position: absolute;
   height: 60px;
   transform: translate(100%, 200%);
-}
-
-.button {
-    background-color: white;
-    color: var(--maincolor);
-    padding: 10px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-    margin-left: 15px;
-}
-.button:hover{
-    filter: brightness(1.2);
-    box-shadow: 1px 1px 8px rgba(0,0,0,0.7);
 }
 </style>

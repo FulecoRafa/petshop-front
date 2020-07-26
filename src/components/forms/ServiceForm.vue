@@ -110,8 +110,7 @@ export default {
     },
     mounted() {
         if(this.$route.query.id){
-            const id = this.$route.query.id
-            this.id = id
+            this.id = this.$route.query.id
             
             const headers = {
                 headers: {
@@ -137,7 +136,7 @@ export default {
                     this.service.description = description
                     this.service.partner = partner
                     this.service.price = price
-                    this.service.hours = hours.toString()
+                    this.service.hours = `[${hours.toString()}]`
                 })
                 .catch(err =>{
                     alert(err.response.body)

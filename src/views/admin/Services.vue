@@ -1,14 +1,16 @@
 <template>
     <div class='services'>
-        <SecondHeader title='services'>
-             <router-link to='/client/edit' class='button'>Add service</router-link>
+        <SecondHeader title='Services'>
+             <router-link to='/admin/serviceedit' class='button'>Add service</router-link>
         </SecondHeader>
         <div class='content'>
             <SearchBox @search="search"></SearchBox>
             <Card flex='true'>
                 <Service v-for='(i, key) in services' :key='key'
-                  :name='i.title' :price='i.price' :desc='i.description'>
-                    <img :src='require(`@/assets/${i.image}`)' alt='service'>
+                  :name='i.title' :slug='i.slug' :price='i.price' :desc='i.description'
+                  :partner='i.partner' :hours='i.hours' :id='i._id'>
+                    <img v-if='i.image' :src='require(`@/assets/${i.image}`)' alt='service'>
+                    <img v-else src='@/assets/biscuit.png' alt='service'>
                 </Service>
             </Card>
         </div>
@@ -52,18 +54,19 @@ export default {
     },
     mounted:function(){
       this.$http.get('http://localhost:9000/services', {headers:{auth: localStorage.getItem('auth'), refresh: localStorage.getItem('refresh')}})
-        .then(res=>{
-          console.log(res.data);
-          if(res.data.newAuthToken){
-            localStorage.setItem('auth', res.data.newAuthToken);
-            location.reload();
-          }else{
-            this.services = res.data
-          }
-        })
-        .catch(err=>{
-          alert(err.response.data);
-        });
+            .then(res=>{
+            console.log(res.data);
+            if(res.data.newAuthToken){
+                localStorage.setItem('auth', res.data.newAuthToken);
+                location.reload();
+            }else{
+                console.log(res.data)
+                this.services = res.data
+            }
+            })
+            .catch(err=>{
+            alert(err.response.data);
+            });
     }
 }
 </script>

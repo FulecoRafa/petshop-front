@@ -29,11 +29,6 @@ import Card from '@/components/Card'
 import CartItem from '@/components/CartItem'
 import SecondHeader from '@/components/SecondHeader'
 
-const createProduct = (name, price, marca, desc, src) => ({
-    name, price, marca, desc, src
-})
-
-
 export default {
     name: 'Cart',
     components: {
@@ -43,23 +38,17 @@ export default {
     },
 
     data: () => ({
-        total: NaN,
-        items: [
-            {
-                quantity: 1,
-                product: createProduct('Dog food', 20.99, 'Crunchie bites', 'Box food for dogs', 'dog-food.jpg')
-            },
-            {
-                quantity: 2,
-                product: createProduct('Cat food', 20.99, 'Whiskas', 'Snacks for cats', 'catfood.jpg'), 
-            },
-            {
-                quantity: 1,
-                product: createProduct('Colar', 5.99, 'Sheffield', 'Collar with guide for walk', 'coleira.jpeg'),
-            }
-        ]
+        items: []
     }),
-
+    computed:{
+      total: ()=>{
+        let sum = 0;
+        for (item of this.items){
+          sum += item.price*item.quantity;
+        }
+        return sum;
+      }
+    },
     methods: {
         remove(index) {
             this.items.splice(index, 1)
@@ -78,14 +67,11 @@ export default {
         update(index, value) {
             this.items[index].quantity = value < 0 ? 0 : value
             this.change()
-        },
-        change() {
-            this.total = this.items.reduce((sum, {quantity, product}) => (sum + product.price * quantity), 0)
         }
     },
 
     mounted() {
-        this.change()
+        
     }
 }
 </script>

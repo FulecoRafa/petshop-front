@@ -3,11 +3,11 @@
         <SecondHeader title='Cart'></SecondHeader>
         <div class='content'>
             <Card class='cartList'>
-                <div v-for='({quantity, product} , key) in items' :key='key'>
-                    <CartItem :value='quantity' :name='product.name' :marca='product.marca' :price='product.price'
+              <!-- <h1 v-if="cart">Cart empty</h1> -->
+                <div v-for='({price, quantity, product} , key) in cart.items' :key='key'>
+                    <CartItem :value='quantity' :name='product.title' :price='price'
                     @remove='remove(key)' @increment='increment(key)' @decrement='decrement(key)'
                     @update='x => update(key, x)'>
-                        <img :src='require(`@/assets/${product.src}`)' alt='product'>
                     </CartItem>
                     <hr>
                 </div>
@@ -36,42 +36,50 @@ export default {
         CartItem,
         SecondHeader
     },
-
+    props:['user'],
     data: () => ({
-        items: []
+        cart: null
     }),
     computed:{
-      total: ()=>{
+      total: function(){
         let sum = 0;
-        for (item of this.items){
-          sum += item.price*item.quantity;
+        if(!this.cart) return sum;
+        else{
+          for (let item in this.cart.items){
+            sum += item.price*item.quantity;
+          }
+          return sum;
         }
-        return sum;
       }
     },
     methods: {
         remove(index) {
-            this.items.splice(index, 1)
-            this.change()
+            this.cart.items.splice(index, 1)
         },
         increment(index) {
-            this.items[index].quantity++
-            this.change()
+            this.cart.items[index].quantity++
         },
         decrement(index) {
-            const item = this.items[index]
+            const item = this.cart.items[index]
             item.quantity--
             item.quantity = item.quantity < 0 ? 0 : item.quantity
-            this.change()
         },
         update(index, value) {
             this.items[index].quantity = value < 0 ? 0 : value
-            this.change()
         }
     },
 
     mounted() {
-        
+        this.$http.get('http://localhost:9000/orders/'+ this.user._id, {headers: {auth: localStorage.getItem('auth'), refresh: localStorage.getItem('refresh')}})
+          .then(res=>{
+            console.table(res.data);
+            this.cart = res.data;
+            console.log(this.cart);
+          })
+          .catch(err=>{
+            console.error(err.response);
+            alert("Error: " + err.response.data);
+          });
     }
 }
 </script>

@@ -10,7 +10,10 @@
                         </th>
                     </tr>
                     <tr v-for='i in hours' :key='i'>
-                        <td v-for='j in numDays' :key='j'><router-link to='404'>{{ calcHour(i + 8) }}</router-link></td>
+                        <td v-for='j in numDays' :key='j'>
+                            <p v-if='getSchedule(j, i)'>{{ getSchedule(j, i) }}</p>
+                            <router-link v-else to='404'>{{ calcHour(i + 8) }}</router-link>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -25,7 +28,8 @@ export default {
         weekdays: ['Sunday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Saturday'],
         hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
         numDays: 10,
-        now: new Date()
+        now: new Date(),
+        allSchedule: []
     }),
     methods: {
         calcWeekday(w){
@@ -46,7 +50,54 @@ export default {
             } else {
                 return `${h}:00 am`
             }
+        },
+
+        dateToQuery(date){
+            const year = date.getFullYear()
+            const month = ('0' + (date.getMonth()+1)).slice(-2)
+            const day = ('0' + date.getDate()).slice(-2)
+            return `${year}-${month}-${day}`
+        },
+
+        createIndex(date, hour) {
+            return `${this.dateToQuery(date)}:${hour}`
+        },
+
+        getSchedule(dayOffset, hour) {
+            const day = this.addDays(this.now, dayOffset)
+            const index = this.createIndex(day, hour)
+            console.log(index)
+            console.log(this.schedule)
+            return this.schedule[index]
         }
+    },
+    computed: {
+        schedule() {
+            const obj = {}
+            for(let i of this.allSchedule) {
+                console.log(i.date)
+                let date = new Date(i.date)
+                date = this.addDays(date, 1)
+                const index = this.createIndex(date, i.hour)
+                obj[index] = i
+            }
+            return obj
+        }
+    },
+    mounted() {
+        const body = {
+            from: this.dateToQuery(this.now),
+            to:   this.dateToQuery(this.addDays(this.now, this.numDays))
+        }
+
+        this.$http.post(' http://localhost:9000/apointments/times', body)
+            .then(res => {
+                console.log(res.data)
+                this.allSchedule = res.data
+            })
+            .catch(err => {
+                alert(err.response.body)
+            })
     }
 }
 </script>

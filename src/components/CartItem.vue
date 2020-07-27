@@ -4,12 +4,7 @@
             <img src='@/assets/delete.png' alt='delete'>
         </button>
 
-        <slot></slot>
-
-        <div class='description'>
-            <p>{{ name }}</p>
-            <p>{{ marca }}</p>
-        </div>
+        <p class='name'>{{ name }}</p>
 
         <div class='unitPrice'>
             <p>Unit price</p>
@@ -31,7 +26,7 @@
 <script>
 export default {
     name: 'CartItem',
-    props: ['value', 'name', 'marca', 'price'],
+    props: ['value', 'name', 'price'],
     methods: {
         remove() {
             this.$emit('remove')
@@ -56,6 +51,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
+    flex-direction: row;
 }
 
 .cartItem img {
@@ -109,13 +105,13 @@ input:focus {
     color: #43484d;
     font-weight: 400;
 }
-.description p:first-child {
-    margin-bottom: 5px;
-}
-.description p:last-child {
-    font-weight: 300;
-    margin-top: 8px;
-    color: #4e4f50;
+.name {
+    align-self: center;
+    margin-top: 20px;
+    width: 170px;
+    font-size: 14pt;
+    text-align: start;
+    font-weight: bold;
 }
 
 .unitPrice {

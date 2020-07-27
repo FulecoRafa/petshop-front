@@ -2,7 +2,7 @@
     <div class='cart'>
         <SecondHeader title='Cart'></SecondHeader>
         <div class='content'>
-            <Card class='cartList'>
+            <Card class='cartList' v-if="cart">
               <!-- <h1 v-if="cart">Cart empty</h1> -->
                 <div v-for='({price, quantity, product} , key) in cart.items' :key='key'>
                     <CartItem :value='quantity' :name='product.title' :price='price'
@@ -17,7 +17,7 @@
                         <p>${{ parseFloat(total).toFixed(2) }}</p>
                     </div>
                     <router-link id='continueShopping' to='/client/'>Continue shopping</router-link>
-                    <router-link  id='buy' to='/client/pay'>Buy</router-link>
+                    <router-link  id='buy' :to="{name: 'ClientPay', params: {cartid: id, total: total}}">Buy</router-link>
                 </div>
             </Card>
         </div>
@@ -38,19 +38,21 @@ export default {
     },
     props:['user'],
     data: () => ({
-        cart: null
+        cart: null,
+        save: false
     }),
     computed:{
       total: function(){
         let sum = 0;
         if(!this.cart) return sum;
         else{
-          for (let item in this.cart.items){
+          for (let item of this.cart.items){
             sum += item.price*item.quantity;
           }
           return sum;
         }
-      }
+      },
+      id: function(){ return this.cart._id}
     },
     methods: {
         remove(index) {
@@ -62,24 +64,41 @@ export default {
         decrement(index) {
             const item = this.cart.items[index]
             item.quantity--
-            item.quantity = item.quantity < 0 ? 0 : item.quantity
+            item.quantity = item.quantity < 1 ? 1 : item.quantity
         },
         update(index, value) {
-            this.items[index].quantity = value < 0 ? 0 : value
+            this.items[index].quantity = value < 1 ? 1 : value
         }
     },
 
     mounted() {
         this.$http.get('http://localhost:9000/orders/'+ this.user._id, {headers: {auth: localStorage.getItem('auth'), refresh: localStorage.getItem('refresh')}})
           .then(res=>{
-            console.table(res.data);
             this.cart = res.data;
-            console.log(this.cart);
+            this.save = true;
           })
           .catch(err=>{
             console.error(err.response);
-            alert("Error: " + err.response.data);
+            alert("No cart found");
+            this.$router.push('/client')
           });
+    },
+
+    beforeRouteLeave(to, from, next){
+      if(this.save){
+        this.$http.put('http://localhost:9000/orders/save/' + this.cart._id, this.cart.items, {headers: {auth: localStorage.getItem('auth'), refresh: localStorage.getItem('refresh')}})
+        .then(res=>{
+          alert(res.data);
+          console.log(res);
+          console.info(this.cart._id);
+          next();
+        })
+        .catch(err=>{
+          alert(err.response.data);
+          console.error(err.response);
+          next(false);
+        });
+      }else next();
     }
 }
 </script>

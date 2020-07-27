@@ -74,6 +74,7 @@ const routes = [
             {
                 path: 'pay',
                 name: 'ClientPay',
+                props: true,
                 component: () => import('@/views/client/Pay')
             },
             {

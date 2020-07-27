@@ -6,15 +6,15 @@
             </div>
             <img src='@/assets/commerce.png' alt='card' class='cardImage'>
             <h5 class='label'>Card number:</h5>
-            <input type='text' id='name' placeholder='XXXX XXXX XXXX XXXX'>
+            <input type='text' id='name' placeholder='XXXX XXXX XXXX XXXX' maxlength="16" required>
             <h5 class='holderLabel'>Card holder:</h5>
             <h5 class='expirationLabel'>Expiration:</h5>
-            <input type='text' class='holder' placeholder='FULL NAME'>
-            <input type='text' class='month' placeholder='MM'>
-            <input type='text' class='year' placeholder='YY'>
+            <input type='text' class='holder' placeholder='FULL NAME' required>
+            <input type='text' class='month' placeholder='MM' maxlength="2" required>
+            <input type='text' class='year' placeholder='YY' maxlength="2" required>
             <div class='cvv'>
                 <h5>CVV:</h5>
-                <input type='text' placeholder='XXX'>
+                <input type='text' placeholder='XXX' maxlength="3" required>
             </div>
         </div>
         <div id='cardBack'>
@@ -27,7 +27,7 @@
 <script>
 export default {
     name: 'Credit',
-    props: ['value']
+    props: ['value', 'cartid']
 }
 </script>
 

@@ -17,12 +17,12 @@
         </div>
 
         <div class='quantity'>
-            <button class='plus'>
-                <img src='@/assets/plus.png' alt='plus' @click='increment'>
+            <button class='plus' @click='increment' >
+                <img src='@/assets/plus.png' alt='plus' >
             </button>
             <input type='number' :value='value' @change='update($event)'>
-            <button class='minus'>
-                <img src='@/assets/minus.png' alt='minus' @click='decrement'>
+            <button class='minus' @click='decrement'>
+                <img src='@/assets/minus.png' alt='minus' >
             </button>
         </div>
     </div>
